@@ -11,10 +11,13 @@
     "start": "cd server && npm i && npm start",
     "dev": "cd server && npm run dev",
     "dev:frontend": "cd frontend && npm run dev",
-    "connect": "psql -U postgres -d react_auth_example",
+    "connect": "psql -U postgres -d comen_todos",
     "lint": "eslint . --fix"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "socket.io": "^4.8.1"
+  }
 }

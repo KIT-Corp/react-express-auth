@@ -1,3 +1,5 @@
+/** @format */
+
 import { useContext, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
@@ -16,22 +18,24 @@ export default function App() {
     const loadCurrentUser = async () => {
       // we aren't concerned about an error happening here
       const [data] = await checkForLoggedInUser();
-      if (data) setCurrentUser(data)
-    }
+      if (data) setCurrentUser(data);
+    };
     loadCurrentUser();
   }, [setCurrentUser]);
 
-  return <>
-    <SiteHeadingAndNav />
-    <main>
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/login' element={<LoginPage />} />
-        <Route path='/sign-up' element={<SignUpPage />} />
-        <Route path='/users' element={<UsersPage />} />
-        <Route path='/users/:id' element={<UserPage />} />
-        <Route path='*' element={<NotFoundPage />} />
-      </Routes>
-    </main>
-  </>;
+  return (
+    <>
+      <SiteHeadingAndNav />
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/sign-up" element={<SignUpPage />} />
+          <Route path="/users" element={<UsersPage />} />
+          <Route path="/users/:id" element={<UserPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </main>
+    </>
+  );
 }
