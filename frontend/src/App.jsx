@@ -2,15 +2,24 @@
 
 import { useContext, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
+// home is where original users can log in
+import Home from './pages/home';
+// loginPage will be for foodBankUsers to log in
+import Login from './pages/Login';
+// AboutUs will be the about us page 
+import AboutUs from './pages/aboutUs';
+//
+// import Review from './pages/foodbankReviews'; 
+import Page from './pages/infoFoodbank';
+import update from './pages/updateInfo';
+
 import SignUpPage from './pages/SignUp';
-import LoginPage from './pages/Login';
 import SiteHeadingAndNav from './components/SiteHeadingAndNav';
 import NotFoundPage from './pages/NotFound';
 import UserContext from './contexts/current-user-context';
 import { checkForLoggedInUser } from './adapters/auth-adapter';
-import UsersPage from './pages/Users';
 import UserPage from './pages/User';
+
 
 export default function App() {
   const { setCurrentUser } = useContext(UserContext);
@@ -29,9 +38,14 @@ export default function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<LoginPage />} />
+          <Route path="/updateInfo" element={<update />} />
+          <Route path="/aboutUs" element= {<AboutUs />} />
+          <Route path='/foodBankInfoPage' element= {<Page />} />
+          <Route path="/Login" element={<Login />} />
           <Route path="/sign-up" element={<SignUpPage />} />
-          <Route path="/users" element={<UsersPage />} />
+          <Route path="/User" element={<UserPage />} />
+          <Route path='/foodbankUser' element={<ifFoodBank />} />
+          <Route path='/new' element={<newInfo />} />
           <Route path="/users/:id" element={<UserPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
