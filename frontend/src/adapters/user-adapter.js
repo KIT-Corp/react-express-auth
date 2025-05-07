@@ -4,8 +4,16 @@ import { fetchHandler, getPatchOptions } from "../utils/fetchingUtils";
 
 const baseUrl = '/api/users';
 
-export const createUser = async ({ username, password }) => {
-  return fetchHandler(baseUrl, getPostOptions({ username, password }))
+export const createUser = async ({   username,
+      email,
+      age,
+      passwordHash,
+      zipcode, }) => {
+  return fetchHandler(baseUrl, getPostOptions({   username,
+      email,
+      age,
+      passwordHash,
+      zipcode, }))
 };
 
 export const getAllUsers = async () => {

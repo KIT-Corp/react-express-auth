@@ -7,9 +7,15 @@ exports.registerUser = async (req, res) => {
   }
 
   // Body needs a username and password
-  const { username, password } = req.body;
-  if (!username || !password) {
-    return res.status(400).send({ message: 'Username and password required' });
+  // changed here 
+  const { is_food_bank,
+      username,
+      email,
+      age,
+      passwordHash,
+      zipcode,  } = req.body;
+  if ( !is_food_bank || !username || !email || !age || !passwordHash || !zipcode) {
+    return res.status(400).send({ message: 'All of the above are required' });
   }
 
   // User.create will handle hashing the password and storing in the database
@@ -23,13 +29,13 @@ exports.registerUser = async (req, res) => {
 exports.loginUser = async (req, res) => {
   // Request needs a body
   if (!req.body) {
-    return res.status(400).send({ message: 'Username and password required' });
+    return res.status(400).send({ message: 'All of the above are required' });
   }
 
   // Body needs a username and password
   const { username, password } = req.body;
   if (!username || !password) {
-    return res.status(400).send({ message: 'Username and password required' });
+    return res.status(400).send({ message: 'All of the above are required' });
   }
 
   // Username must be valid
