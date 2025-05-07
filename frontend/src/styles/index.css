@@ -12,7 +12,7 @@
 body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   margin: 0;
-  background-color: #7BDFF2;
+  background-color: #3CB371;
 }
 
 main {
@@ -80,7 +80,7 @@ form>h2 {
 
 /* automatically added by NavLink component */
 .active {
-  color: #EEBC32;
+  color: #F7D6E0;
   font-weight: bold;
   font-style: italic;
 }
