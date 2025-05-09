@@ -3,7 +3,7 @@ import { useNavigate, Navigate } from "react-router-dom";
 import { logUserIn } from "../adapters/auth-adapter";
 import CurrentUserContext from "../contexts/current-user-context";
 
-export default function LoginPage() {
+export default function SignUp () {
   const navigate = useNavigate();
   const [errorText, setErrorText] = useState('');
   const [username, setUsername] = useState('');

@@ -14,7 +14,7 @@ exports.up = function (knex) {
       .inTable('users')
       .onDelete('SET NULL'); // when the user is deleted, it will set "user_id" to NULL
     table
-      .integer('foodbank_id')
+      .integer('food_bank_id')
       .unsigned()
       .notNullable()
       .references('id')

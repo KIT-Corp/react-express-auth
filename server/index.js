@@ -17,6 +17,7 @@ const logErrors = require("./middleware/logErrors");
 // controller imports
 const authControllers = require("./controllers/authControllers");
 const userControllers = require("./controllers/userControllers");
+const reviewsControllers = require("./controllers/userReviewsControllers");
 const app = express();
 
 // middleware
@@ -31,6 +32,7 @@ app.use(express.static(path.join(__dirname, "../frontend/dist"))); // Serve stat
 
 app.post("/api/auth/register", authControllers.registerUser);
 app.post("/api/auth/login", authControllers.loginUser);
+// app.get("/api/foodbank/signup", authControllers.showMe);
 app.get("/api/auth/me", authControllers.showMe);
 app.delete("/api/auth/logout", authControllers.logoutUser);
 
@@ -43,6 +45,84 @@ app.delete("/api/auth/logout", authControllers.logoutUser);
 app.get("/api/users", checkAuthentication, userControllers.listUsers);
 app.get("/api/users/:id", checkAuthentication, userControllers.showUser);
 app.patch("/api/users/:id", checkAuthentication, userControllers.updateUser);
+
+///////////////////////////////
+// User Rewiew routes
+///////////////////////////////
+
+//List reviews for a specific user
+app.get(
+  "/api/users/:id/reviews",
+  checkAuthentication,
+  reviewsControllers.showReviews
+);
+
+//List reviews for all users
+app.get(
+  "/api/users/reviews",
+  checkAuthentication,
+  reviewsControllers.listReviews
+);
+
+///////////////////////////////
+// User Post routes
+///////////////////////////////
+
+///////////////////////////////
+// FoodBank Post routes
+///////////////////////////////
+
+///////////////////////////////
+// FoodBank schedule routes
+///////////////////////////////
+
+///////////////////////////////
+// Comments routes
+///////////////////////////////
+
+///////////////////////////////
+// Foodbank Routes
+///////////////////////////////
+
+// app.get("/api/foodbanks", foodbankControllers.listFoodbanks);
+// app.get("/api/foodbanks/:id", foodbankControllers.showFoodbank);
+// app.post(
+//   "/api/foodbanks",
+//   checkAuthentication,
+//   foodbankControllers.createFoodbank
+// );
+// app.put(
+//   "/api/foodbanks/:id",
+//   checkAuthentication,
+//   foodbankControllers.updateFoodbank
+// );
+// app.post(
+//   "/api/foodbanks/:id/info",
+//   checkAuthentication,
+//   foodbankControllers.updateFoodbankInfo
+// );
+// app.get("/api/foodbanks/:id/info", foodbankControllers.getFoodbankInfo);
+
+///////////////////////////////
+// User Review Routes
+///////////////////////////////
+
+// app.post(
+//   "/api/reviews/create",
+//   checkAuthentication,
+//   reviewControllers.createReview
+// );
+// app.get("/api/reviews/:id", reviewControllers.getReview);
+// app.put(
+//   "/api/reviews/:id",
+//   checkAuthentication,
+//   reviewControllers.updateReview
+// );
+// app.delete(
+//   "/api/reviews/:id",
+//   checkAuthentication,
+//   reviewControllers.deleteReview
+// );
 
 ///////////////////////////////
 // Fallback Routes

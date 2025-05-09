@@ -32,11 +32,10 @@ class UserReview {
     );
   }
 
-  static async find(id) {
-    const query = `SELECT * FROM user_reviews WHERE id = ?`;
-    const result = await knex.raw(query, [id]);
-    const rawUserReviewData = result.rows[0];
-    return rawUserReviewData ? new UserReview(rawUserReviewData) : null;
+  static async find(user_id) {
+    const query = `SELECT * FROM user_reviews WHERE user_id = ?`;
+    const result = await knex.raw(query, [user_id]);
+    return result.rows.map((data) => new UserReview(data)) || null;
   }
 
   static async findByFoodbank(food_bank_id) {

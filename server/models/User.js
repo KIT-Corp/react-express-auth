@@ -35,14 +35,7 @@ class User {
   // Hashes the given password and then creates a new user
   // in the users table. Returns the newly created user, using
   // the constructor to hide the passwordHash.
-  static async create({
-    username,
-    password,
-    email,
-    is_food_bank,
-    age,
-    zipcode,
-  }) {
+  static async create(username, password, email, is_food_bank, age, zipcode) {
     // hash the plain-text password using bcrypt before storing it in the database
     const passwordHash = await bcrypt.hash(password, SALT_ROUNDS);
 
@@ -96,15 +89,15 @@ class User {
   static async update(id, username, email, age, zipcode) {
     const query = `
       UPDATE users
-      SET username = ?
-      SET email = ?
-      SET age = ?
-      SET zipcode = ?
-      WHERE id = ?
+      SET username = ?,
+      SET email = ?,
+      age = ?,
+      zipcode = ?,
+      WHERE id = ?,
       RETURNING *
     `;
     const result = await knex.raw(query, [username, email, age, zipcode, id]);
-    const rawUpdatedUser = result.rows[0];
+    const rawUpdatedUser = await result.rows[0];
     return rawUpdatedUser ? new User(rawUpdatedUser) : null;
   }
 

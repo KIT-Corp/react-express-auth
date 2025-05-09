@@ -14,7 +14,11 @@ exports.up = function (knex) {
       .inTable('users')
       .onDelete('CASCADE');
     table.string('name').notNullable();
-    table.text('foodbank_location');
+    table.text('food_bank_street').notNullable();
+    table.text('food_bank_borough').notNullable();
+    table.text('food_bank_zip').notNullable();
+    table.text('type').notNullable();
+    table.string('phone_number').notNullable();
   });
 };
 

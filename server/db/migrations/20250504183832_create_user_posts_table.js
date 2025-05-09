@@ -13,7 +13,7 @@ exports.up = function (knex) {
       .references('id')
       .inTable('users')
       .onDelete('CASCADE');
-    table.text('foodbank_location').notNullable();
+    table.text('food_bank_location').notNullable();
     table.text('content').notNullable();
     table.timestamp('date_made').defaultTo(knex.fn.now()).notNullable();
   });
