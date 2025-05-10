@@ -9,6 +9,7 @@
     "dev": "nodemon ./index.js",
     "connect": "psql -U postgres -d comen_todos",
     "migrate": "knex migrate:latest",
+    "rollback": "npx knex migrate:rollback --all",
     "migrate:make": "knex migrate:make",
     "migrate:rollback": "knex migrate:rollback",
     "seed": "knex seed:run",

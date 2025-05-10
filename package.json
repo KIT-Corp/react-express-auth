@@ -13,7 +13,7 @@
     "dev:frontend": "cd frontend && npm run dev",
     "connect": "psql -U postgres -d comen_todos",
     "lint": "eslint . --fix",
-    "kill3000": "kill-port 3000"
+    "kill3000": "npx kill-port 3000"
   },
   "keywords": [],
   "author": "",

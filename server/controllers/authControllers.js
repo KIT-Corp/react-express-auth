@@ -67,7 +67,14 @@ exports.loginUser = async (req, res) => {
 
   // Add the user id to the cookie and send the user data back
   console.log(req.session);
+
+  //when we log the user we will see isValidPassword: [AsyncFunction: isValidPassword],
+  //this is because Javascript treats instance methods as properties of the class
+  console.log(user);
+  //after we found the user and verified the password we can add the user id to the session
+  //we use the cookie session to verify the user in future requests
   req.session.userId = user.id;
+  //send the user back to the client so that we can use it in the frontend
   res.send(user);
 };
 

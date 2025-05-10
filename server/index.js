@@ -9,14 +9,15 @@ const path = require("path");
 const express = require("express");
 
 // TEMP: Verify SESSION_SECRET is loaded (safe way)
-if (!process.env.SESSION_SECRET) {
-  console.error("❌ SESSION_SECRET is missing!");
-  process.exit(1); // Stop the app
-} else {
-  //!! just checks if the value is truthy instead of logging the value
-  // This is a good way to check if the environment variable is loaded
-  console.log("✅ SESSION_SECRET is loaded:", !!process.env.SESSION_SECRET);
-}
+
+// if (!process.env.SESSION_SECRET) {
+//   console.error("❌ SESSION_SECRET is missing!");
+//   process.exit(1); // Stop the app
+// } else {
+//   //!! just checks if the value is truthy instead of logging the value
+//   // This is a good way to check if the environment variable is loaded
+//   console.log("✅ SESSION_SECRET is loaded:", !!process.env.SESSION_SECRET);
+// }
 
 // middleware imports
 const handleCookieSessions = require("./middleware/handleCookieSessions");
@@ -58,19 +59,56 @@ app.delete("/api/auth/logout", authControllers.logoutUser);
 
 // These actions require users to be logged in (authentication)
 // Express lets us pass a piece of middleware to run for a specific endpoint
+
+//list all users
 app.get("/api/users", checkAuthentication, userControllers.listUsers);
+
+//get a specifc user
 app.get("/api/users/:id", checkAuthentication, userControllers.showUser);
+
+//update a specific user
 app.patch("/api/users/:id", checkAuthentication, userControllers.updateUser);
 
 ///////////////////////////////
 // User Rewiew routes
 ///////////////////////////////
 
-//List reviews for a specific user
+//create a new review
+app.post(
+  "/api/reviews/create",
+  checkAuthentication,
+  reviewsControllers.createReview
+);
+
+//get a specific review
+app.get("/api/reviews/:id", checkAuthentication, reviewsControllers.showReview);
+
+//update a specific review
+app.patch(
+  "/api/reviews/:id",
+  checkAuthentication,
+  reviewsControllers.updateReview
+);
+
+//delete a specific review
+app.delete(
+  "/api/reviews/:id",
+  checkAuthentication,
+  reviewsControllers.deleteReview
+);
+
+//List all reviews from a specific user
 app.get(
   "/api/users/:id/reviews",
   checkAuthentication,
   reviewsControllers.showReviews
+);
+
+//list all reviews from a specific foodbank
+app.get(
+  "/api/foodbanks/:id/reviews",
+  checkAuthentication,
+  reviewsControllers.showReviewsByFoodbank
 );
 
 //List reviews for all users
@@ -118,27 +156,6 @@ app.get(
 //   foodbankControllers.updateFoodbankInfo
 // );
 // app.get("/api/foodbanks/:id/info", foodbankControllers.getFoodbankInfo);
-
-///////////////////////////////
-// User Review Routes
-///////////////////////////////
-
-// app.post(
-//   "/api/reviews/create",
-//   checkAuthentication,
-//   reviewControllers.createReview
-// );
-// app.get("/api/reviews/:id", reviewControllers.getReview);
-// app.put(
-//   "/api/reviews/:id",
-//   checkAuthentication,
-//   reviewControllers.updateReview
-// );
-// app.delete(
-//   "/api/reviews/:id",
-//   checkAuthentication,
-//   reviewControllers.deleteReview
-// );
 
 ///////////////////////////////
 // Fallback Routes
