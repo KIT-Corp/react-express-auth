@@ -8,6 +8,16 @@ require("dotenv").config();
 const path = require("path");
 const express = require("express");
 
+// TEMP: Verify SESSION_SECRET is loaded (safe way)
+if (!process.env.SESSION_SECRET) {
+  console.error("❌ SESSION_SECRET is missing!");
+  process.exit(1); // Stop the app
+} else {
+  //!! just checks if the value is truthy instead of logging the value
+  // This is a good way to check if the environment variable is loaded
+  console.log("✅ SESSION_SECRET is loaded:", !!process.env.SESSION_SECRET);
+}
+
 // middleware imports
 const handleCookieSessions = require("./middleware/handleCookieSessions");
 const checkAuthentication = require("./middleware/checkAuthentication");
@@ -30,10 +40,16 @@ app.use(express.static(path.join(__dirname, "../frontend/dist"))); // Serve stat
 // Auth Routes
 ///////////////////////////////
 
+//register a new user
 app.post("/api/auth/register", authControllers.registerUser);
+
+//login using to an existing user
 app.post("/api/auth/login", authControllers.loginUser);
-// app.get("/api/foodbank/signup", authControllers.showMe);
+
+//show the current user
 app.get("/api/auth/me", authControllers.showMe);
+
+//logout the current user
 app.delete("/api/auth/logout", authControllers.logoutUser);
 
 ///////////////////////////////
