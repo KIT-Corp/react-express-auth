@@ -6,7 +6,6 @@
 
 exports.seed = async function (knex) {
   // Deletes ALL existing entries
-  await knex('map_food_bank_locations').del();
   await knex('map_food_bank_locations').insert([
     {
       id: 1,
