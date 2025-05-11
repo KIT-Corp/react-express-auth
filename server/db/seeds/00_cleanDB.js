@@ -11,7 +11,6 @@ exports.seed = async function (knex) {
   await knex('user_reviews').del();
   await knex('food_bank_posts').del();
   await knex('user_posts').del();
-  await knex('food_bank_schedules').del();
   await knex('map_food_bank_locations').del();
   await knex('food_banks').del();
   await knex('users').del();
