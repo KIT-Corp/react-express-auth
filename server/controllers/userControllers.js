@@ -1,4 +1,6 @@
-const User = require("../models/User");
+/** @format */
+
+const User = require('../models/User');
 
 /* 
 GET /api/users
@@ -18,7 +20,7 @@ exports.showUser = async (req, res) => {
 
   const user = await User.find(id);
   if (!user) {
-    return res.status(404).send({ message: "User not found." });
+    return res.status(404).send({ message: 'User not found.' });
   }
 
   res.send(user);
@@ -32,7 +34,7 @@ exports.updateUser = async (req, res) => {
   console.log(req.body);
   const { username, email, age, zipcode } = req.body;
   if (!username) {
-    return res.status(400).send({ message: "New username required." });
+    return res.status(400).send({ message: 'New username required.' });
   }
 
   // A user is only authorized to modify their own user information
@@ -45,7 +47,9 @@ exports.updateUser = async (req, res) => {
 
   //if the user id from the request params does not match the user id from the session
   if (userRequestingChange !== userToModify) {
-    return res.status(403).send({ message: "Unauthorized." });
+    console.log('Requesting User ID (session):', req.session.userId);
+    console.log('User to Modify (param):', req.params.id);
+    return res.status(403).send({ message: 'Unauthorized.' });
   }
 
   //if they match then we know they want to modify their own user information
@@ -57,8 +61,8 @@ exports.updateUser = async (req, res) => {
     zipcode
   );
   if (!updatedUser) {
-    return res.status(404).send({ message: "User not found." });
+    return res.status(404).send({ message: 'User not found.' });
   }
-  console.log("updatedUser", updatedUser);
+  console.log('updatedUser', updatedUser);
   res.send(updatedUser);
 };

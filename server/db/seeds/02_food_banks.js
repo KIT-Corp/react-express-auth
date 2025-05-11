@@ -5,11 +5,10 @@
  */
 
 exports.seed = async function (knex) {
-  // Deletes ALL existing entries
-  // await knex('food_banks').del();
+  await knex.raw('ALTER SEQUENCE food_banks_id_seq RESTART WITH 1');
+
   await knex('food_banks').insert([
     {
-      id: 1,
       user_id: 1,
       name: 'Manhattan Food Bank 1',
       food_bank_street: '123 Main St',
@@ -19,7 +18,6 @@ exports.seed = async function (knex) {
       phone_number: '2125551001',
     },
     {
-      id: 2,
       user_id: 2,
       name: 'Manhattan Food Bank 2',
       food_bank_street: '456 Broadway',
@@ -29,7 +27,6 @@ exports.seed = async function (knex) {
       phone_number: '2125551002',
     },
     {
-      id: 3,
       user_id: 3,
       name: 'Brooklyn Food Bank 1',
       food_bank_street: '789 Flatbush Ave',
@@ -39,7 +36,6 @@ exports.seed = async function (knex) {
       phone_number: '7185551003',
     },
     {
-      id: 4,
       user_id: 4,
       name: 'Brooklyn Food Bank 2',
       food_bank_street: '321 Bedford Ave',
@@ -49,7 +45,6 @@ exports.seed = async function (knex) {
       phone_number: '7185551004',
     },
     {
-      id: 5,
       user_id: 5,
       name: 'Queens Food Bank 1',
       food_bank_street: '654 Queens Blvd',
@@ -59,7 +54,6 @@ exports.seed = async function (knex) {
       phone_number: '3475551005',
     },
     {
-      id: 6,
       user_id: 6,
       name: 'Queens Food Bank 2',
       food_bank_street: '987 Northern Blvd',
@@ -69,7 +63,6 @@ exports.seed = async function (knex) {
       phone_number: '3475551006',
     },
     {
-      id: 7,
       user_id: 7,
       name: 'Bronx Food Bank 1',
       food_bank_street: '135 Grand Concourse',
@@ -79,7 +72,6 @@ exports.seed = async function (knex) {
       phone_number: '7185551007',
     },
     {
-      id: 8,
       user_id: 8,
       name: 'Bronx Food Bank 2',
       food_bank_street: '246 Jerome Ave',
@@ -89,7 +81,6 @@ exports.seed = async function (knex) {
       phone_number: '7185551008',
     },
     {
-      id: 9,
       user_id: 9,
       name: 'Staten Island Food Bank 1',
       food_bank_street: '369 Bay St',
@@ -99,7 +90,6 @@ exports.seed = async function (knex) {
       phone_number: '7185551009',
     },
     {
-      id: 10,
       user_id: 10,
       name: 'Staten Island Food Bank 2',
       food_bank_street: '159 Richmond Ave',
