@@ -13,12 +13,14 @@
     "dev": "cd server && npm run dev",
     "dev:frontend": "cd frontend && npm run dev",
     "connect": "psql -U postgres -d comen_todos",
-    "lint": "eslint . --fix"
+    "lint": "eslint . --fix",
+    "kill3000": "npx kill-port 3000"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "knex": "^3.1.0",
     "dotenv": "^16.5.0",
     "node-fetch": "^3.3.2",
     "socket.io": "^4.8.1"

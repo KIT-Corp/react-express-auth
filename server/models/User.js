@@ -1,7 +1,7 @@
 /** @format */
 
-const knex = require('../db/knex');
-const bcrypt = require('bcrypt');
+const knex = require("../db/knex");
+const bcrypt = require("bcrypt");
 const SALT_ROUNDS = 12;
 
 class User {
@@ -28,6 +28,11 @@ class User {
   }
 
   // Controllers can use this instance method to validate passwords prior to sending responses
+  /* That isValidPassword method is defined inside the User class as an instance method, 
+  so it’s not a standalone variable. It’s being defined on each instance of the class.
+
+  This means that when you create a new User object, it will have access to this method.
+   */
   isValidPassword = async (password) => {
     return await bcrypt.compare(password, this.#passwordHash);
   };
@@ -46,12 +51,20 @@ class User {
     // hash the plain-text password using bcrypt before storing it in the database
     const passwordHash = await bcrypt.hash(password, SALT_ROUNDS);
 
+    //Pass values using SQL query parameters to prevent SQL injection
+    //Ensure that the values match the correct column types in the database
     const query = `
     INSERT INTO users (is_food_bank, username, email, age, password_hash, zipcode)
     VALUES (?, ?, ?, ?, ?, ?)
     RETURNING *
   `;
 
+    //we pass passwordHash to the query instead of password
+    //because we want to store the hashed password in the database
+
+    /*since passwordHash is also a private property in the constructor
+     it will not be exposed when we create a new user and log the result
+    */
     const result = await knex.raw(query, [
       is_food_bank,
       username,
@@ -93,20 +106,23 @@ class User {
 
   // Updates the user that matches the given id with a new username.
   // Returns the modified user, using the constructor to hide the passwordHash.
-  static async update(id, username) {
+  static async update(id, username, email, age, zipcode) {
     const query = `
       UPDATE users
-      SET username = ?
+      SET username = ?,
+      email = ?,
+      age = ?,
+      zipcode = ?
       WHERE id = ?
       RETURNING *
     `;
-    const result = await knex.raw(query, [username, id]);
-    const rawUpdatedUser = result.rows[0];
+    const result = await knex.raw(query, [username, email, age, zipcode, id]);
+    const rawUpdatedUser = await result.rows[0];
     return rawUpdatedUser ? new User(rawUpdatedUser) : null;
   }
 
   static async deleteAll() {
-    return knex('users').del();
+    return knex("users").del();
   }
 }
 
