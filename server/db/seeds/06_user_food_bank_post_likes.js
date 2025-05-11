@@ -5,8 +5,6 @@
  */
 
 exports.seed = async function (knex) {
-  // Deletes ALL existing entries
-  // await knex('user_food_bank_post_likes').del();
   await knex('user_food_bank_post_likes').insert([
     { user_id: 12, food_bank_post_id: 1, liked_at: new Date() },
     { user_id: 13, food_bank_post_id: 2, liked_at: new Date() },

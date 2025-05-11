@@ -5,8 +5,8 @@
  */
 
 exports.seed = async function (knex) {
-  // Deletes ALL existing entries
-  // await knex('food_bank_posts').del();
+  await knex.raw('ALTER SEQUENCE food_bank_posts_id_seq RESTART WITH 1');
+
   await knex('food_bank_posts').insert([
     {
       food_bank_id: 1,
