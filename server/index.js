@@ -119,6 +119,10 @@ app.get(
 );
 
 ///////////////////////////////
+// Fallback Routes
+///////////////////////////////
+
+///////////////////////////////
 // User Post routes
 ///////////////////////////////
 
@@ -136,29 +140,6 @@ app.get(
 
 ///////////////////////////////
 // Foodbank Routes
-///////////////////////////////
-
-// app.get("/api/foodbanks", foodbankControllers.listFoodbanks);
-// app.get("/api/foodbanks/:id", foodbankControllers.showFoodbank);
-// app.post(
-//   "/api/foodbanks",
-//   checkAuthentication,
-//   foodbankControllers.createFoodbank
-// );
-// app.put(
-//   "/api/foodbanks/:id",
-//   checkAuthentication,
-//   foodbankControllers.updateFoodbank
-// );
-// app.post(
-//   "/api/foodbanks/:id/info",
-//   checkAuthentication,
-//   foodbankControllers.updateFoodbankInfo
-// );
-// app.get("/api/foodbanks/:id/info", foodbankControllers.getFoodbankInfo);
-
-///////////////////////////////
-// Fallback Routes
 ///////////////////////////////
 
 // Requests meant for the API will be sent along to the router.
