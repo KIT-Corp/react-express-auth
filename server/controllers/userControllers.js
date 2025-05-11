@@ -45,6 +45,8 @@ exports.updateUser = async (req, res) => {
 
   //if the user id from the request params does not match the user id from the session
   if (userRequestingChange !== userToModify) {
+    console.log("Requesting User ID (session):", req.session.userId);
+    console.log("User to Modify (param):", req.params.id);
     return res.status(403).send({ message: "Unauthorized." });
   }
 
