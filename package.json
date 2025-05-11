@@ -1,6 +1,7 @@
 {
   "name": "react-express-auth-template",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
   "main": "server/index.js",
   "scripts": {
@@ -20,6 +21,8 @@
   "license": "ISC",
   "dependencies": {
     "knex": "^3.1.0",
+    "dotenv": "^16.5.0",
+    "node-fetch": "^3.3.2",
     "socket.io": "^4.8.1"
   }
 }

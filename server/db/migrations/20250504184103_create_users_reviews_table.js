@@ -5,8 +5,9 @@
  */
 
 exports.up = function (knex) {
-  return knex.schema.createTable("user_reviews", function (table) {
-    table.increments("id").primary();
+  return knex.schema.createTable('user_reviews', function (table) {
+    table.increments('id').primary();
+
     table
       .integer("user_id")
       .unsigned()
