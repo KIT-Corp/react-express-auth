@@ -3,11 +3,16 @@
   padding: 0;
   box-sizing: border-box;
 }
+/* sizzing of map container */
+.leaflet-container {
+  height: 500px;
+  width: 500px;
+}
 
-#map { 
-  height: 180px;
-  width: 180px;
- }
+.leaflet-map {
+  height: 150px;
+  width: 150px;
+}
 
 body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -80,7 +85,7 @@ form>h2 {
 
 /* automatically added by NavLink component */
 .active {
-  color: #EEBC32;
+  color: #F7D6E0;
   font-weight: bold;
   font-style: italic;
 }

@@ -8,11 +8,10 @@ import Home from './pages/home';
 import Login from './pages/Login';
 // AboutUs will be the about us page 
 import AboutUs from './pages/aboutUs';
-//
 // import Review from './pages/foodbankReviews'; 
 import Page from './pages/infoFoodbank';
-import update from './pages/updateInfo';
-
+// import update from './pages/updateInfo';
+import Search from './pages/search'
 import SignUpPage from './pages/SignUp';
 import SiteHeadingAndNav from './components/SiteHeadingAndNav';
 import NotFoundPage from './pages/NotFound';
@@ -38,7 +37,8 @@ export default function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/updateInfo" element={<update />} />
+          <Route path="/search" element={<Search />} />
+          {/* <Route path="/update" element={<update />} /> */}
           <Route path="/aboutUs" element= {<AboutUs />} />
           <Route path='/foodBankInfoPage' element= {<Page />} />
           <Route path="/Login" element={<Login />} />
