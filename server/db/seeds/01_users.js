@@ -14,7 +14,7 @@ exports.seed = async function (knex) {
     is_food_bank: true,
     username: 'nyc_foodbank_manhattan1',
     email: 'contact1@nycfoodbankmanhattan.org',
-    age: 30,
+    age: null,
     password: 'hashed_pw1',
     zipcode: '10001',
   });
@@ -23,7 +23,7 @@ exports.seed = async function (knex) {
     is_food_bank: true,
     username: 'nyc_foodbank_manhattan2',
     email: 'contact2@nycfoodbankmanhattan.org',
-    age: 31,
+    age: null,
     password: 'hashed_pw2',
     zipcode: '10002',
   });
@@ -32,7 +32,7 @@ exports.seed = async function (knex) {
     is_food_bank: true,
     username: 'nyc_foodbank_brooklyn1',
     email: 'contact1@nycfoodbankbrooklyn.org',
-    age: 28,
+    age: null,
     password: 'hashed_pw3',
     zipcode: '11201',
   });
@@ -41,7 +41,7 @@ exports.seed = async function (knex) {
     is_food_bank: true,
     username: 'nyc_foodbank_brooklyn2',
     email: 'contact2@nycfoodbankbrooklyn.org',
-    age: 29,
+    age: null,
     password: 'hashed_pw4',
     zipcode: '11215',
   });
@@ -50,7 +50,7 @@ exports.seed = async function (knex) {
     is_food_bank: true,
     username: 'nyc_foodbank_queens1',
     email: 'contact1@nycfoodbankqueens.org',
-    age: 32,
+    age: null,
     password: 'hashed_pw5',
     zipcode: '11368',
   });

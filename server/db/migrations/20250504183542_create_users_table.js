@@ -11,7 +11,7 @@ exports.up = function (knex) {
     table.boolean('is_food_bank').notNullable().defaultTo(false);
     table.string('username').unique().notNullable();
     table.string('email').unique().notNullable();
-    table.integer('age');
+    table.integer('age').nullable();
     table.string('password_hash').notNullable();
     table.string('zipcode', 10);
   });
