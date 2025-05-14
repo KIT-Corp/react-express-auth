@@ -1,4 +1,4 @@
-const cfcActiveData = {
+export const cfcActiveData = {
   "85828": {
     "Type": "FP",
     "Program": "ABUNDANT LIFE CHRISTIAN CHURCH FP",

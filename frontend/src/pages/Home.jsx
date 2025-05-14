@@ -2,7 +2,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { Icon } from 'leaflet';
 import "leaflet/dist/leaflet.css";
 import "../styles/index.css";
-import pinIcon from '../photos/pin.png';
+import pinIcon from '../photos/pinpointing.png';
 
 export default function Home() {
   const markers = [
@@ -25,6 +25,7 @@ export default function Home() {
     iconSize: [25, 25],  // Slightly larger for better visibility
     iconAnchor: [12, 25] // Point at the bottom center of the icon
   });
+
 
   return (
     <div>

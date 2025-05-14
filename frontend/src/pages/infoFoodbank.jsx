@@ -1,11 +1,16 @@
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import {BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom'; 
 import { useState } from "react";
 
-export default function Page () {
+export default function Page (props) {
+
+  console.log("info: ", props)
+
   return <>
     <h1>Food bank name</h1>
     <p>Located at: </p>
     <p>Hours: </p>
+
+
 
     <h2>Common Items Found:</h2>
     <ul>item 1</ul>

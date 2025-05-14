@@ -4,7 +4,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { Icon } from 'leaflet';
 import "leaflet/dist/leaflet.css";
 import "../styles/index.css";
-import pinIcon from '../photos/pin.png';
+import pinIcon from '../photos/pinpointing.png';
 import { SearchBar } from '../components/SearchBar';
 
   export default function search() {
@@ -34,9 +34,7 @@ import { SearchBar } from '../components/SearchBar';
 
     <h1>Search Food Banks Here: </h1>
     <SearchBar />
-    <div> SearchResults </div>
 
-    <p>map here</p>
     
     <div>
       <MapContainer center={[40.7128, -74.0060]} zoom={13}>
@@ -53,7 +51,7 @@ import { SearchBar } from '../components/SearchBar';
       </MapContainer>
     </div>
 
-    <h2>Closest to you:</h2>
+    <h2>Search by borough</h2>
         <p>probably a list here with basic info:</p>
         <ul>time</ul>
         <ul>location</ul>
