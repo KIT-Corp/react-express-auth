@@ -30,9 +30,9 @@ const clickedFoodBank = (result) => {
   let navigate = useNavigate();
   useEffect(() => {
     if (foodbank.length !== 0){
-        console.log("RUAH", foodbank)
+        // console.log("RUAH", foodbank)
         let path = '/foodBankInfoPage'
-        navigate(path, {foodbank: foodbank})
+        navigate(path,{state: foodbank})
     }
   }, [foodbank])
 

@@ -1,21 +1,18 @@
-import {BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom'; 
+import {BrowserRouter as Router, Route, Link, Routes, useLocation } from 'react-router-dom'; 
 import { useState } from "react";
 
 export default function Page (props) {
-
-  console.log("info: ", props)
+  const location = useLocation();
+  const foodbank = location.state
+  console.log("info: ", foodbank)
 
   return <>
-    <h1>Food bank name</h1>
-    <p>Located at: </p>
-    <p>Hours: </p>
+    <h1>Food bank name: {foodbank.Program}</h1>
+    <p>Located at: {foodbank.Address.Street}, {foodbank.Address.Borough}, {foodbank.Address.ZIP}</p>
+    <p>Days Opened: {foodbank.Schedules[0].Days}</p>
+    <p>Hours: {foodbank.Schedules[0].openingHour} - {foodbank.Schedules[0].closingHour} </p>
+    <p>Phone Number: {foodbank.Phone}</p>
 
-
-
-    <h2>Common Items Found:</h2>
-    <ul>item 1</ul>
-    <ul>item 2</ul>
-    <ul>item 3</ul>
 
     <Link to="/foodbankReview">
         <button>Leave a review!</button>
