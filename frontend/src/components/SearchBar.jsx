@@ -49,10 +49,6 @@ const clickedFoodBank = (result) => {
         {results.map((item, index) => (
           <li className='search-result' key={index} onClick = {() => {
             clickedFoodBank(results[index])
-
-        //    let path = '/foodBankInfoPage'
-        //     navigate(path, {results[index]})
-//    console.log(foodbank)
   }
   }>{item.Program}</li>
         ))}

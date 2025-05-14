@@ -50,3 +50,22 @@ input.focus{
 .search-result:hover{
     background-color: #efefef;
 }
+
+.inputForm {
+    background-color: #ddd;
+    max-width: 230px;
+}
+
+.reviewInput{
+    width: 500px;
+    max-height: 500px;
+    background-color: white;
+}
+
+.commentInput{
+    margin-left: 50px;
+    width: 430px;
+    max-height: 250px;
+    background-color: #efefef;
+}
+
