@@ -89,3 +89,13 @@ form>h2 {
   font-weight: bold;
   font-style: italic;
 }
+
+.id-photos{
+  height: 300px;
+  width: 200px;
+}
+
+#king-photos{
+  height: 350px;
+  width: 200px;
+}

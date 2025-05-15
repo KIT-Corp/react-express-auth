@@ -3,12 +3,13 @@
 import { useContext, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 // home is where original users can log in
+import Review from './pages/reviews'
 import Home from './pages/home';
 // loginPage will be for foodBankUsers to log in
 import Login from './pages/Login';
 // AboutUs will be the about us page 
 import AboutUs from './pages/aboutUs';
-// import Review from './pages/foodbankReviews'; 
+import Form from './pages/reviewsForm' 
 import Page from './pages/infoFoodbank';
 // import update from './pages/updateInfo';
 import Search from './pages/search'
@@ -37,6 +38,8 @@ export default function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/Review" element={<Review />} />
+          <Route path="/Form" element={<Form />} />
           <Route path="/search" element={<Search />} />
           {/* <Route path="/update" element={<update />} /> */}
           <Route path="/aboutUs" element= {<AboutUs />} />
