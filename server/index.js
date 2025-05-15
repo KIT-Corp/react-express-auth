@@ -32,6 +32,7 @@ const reviewsControllers = require("./controllers/userReviewsControllers");
 const userPostControllers = require("./controllers/userPostControllers");
 const foodbankPostControllers = require("./controllers/foodbankPostControllers");
 const foodbankControllers = require("./controllers/foodBankControllers");
+const defaultBanksControllers = require("./controllers/DefaultBankControllers");
 const app = express();
 
 // middleware
@@ -185,10 +186,6 @@ app.delete(
 );
 
 ///////////////////////////////
-// FoodBank schedule routes
-///////////////////////////////
-
-///////////////////////////////
 // Comments routes
 ///////////////////////////////
 
@@ -229,6 +226,36 @@ app.delete(
   "/api/foodbanks/:id",
   checkAuthentication,
   foodbankControllers.deleteFoodBank
+);
+
+///////////////////////////////
+// Default Bank routes
+///////////////////////////////
+
+//list food bank
+app.get("/api/banks", defaultBanksControllers.listBanks);
+
+//get serve coordinates
+app.get("/api/banks/coordinates", defaultBanksControllers.serveCoordinates);
+
+//get a food bank by id
+app.get("/api/banks/:id", defaultBanksControllers.getBankById);
+
+//create a foodbank
+app.post("/api/banks", checkAuthentication, defaultBanksControllers.createBank);
+
+//update a foodbank
+app.patch(
+  "/api/banks/:id",
+  checkAuthentication,
+  defaultBanksControllers.updateFoodBank
+);
+
+//delete a foodbank
+app.delete(
+  "/api/banks/:id",
+  checkAuthentication,
+  defaultBanksControllers.deleteFoodBank
 );
 
 ///////////////////////////////
