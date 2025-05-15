@@ -96,7 +96,7 @@ class DefaultBank {
 
   //serve all coordinates
   static async getCoordinates() {
-    const query = `SELECT latitude, longitude FROM map_food_bank_locations`;
+    const query = `SELECT name, latitude, longitude FROM map_food_bank_locations`;
     const result = await knex.raw(query);
     return result.rows;
   }

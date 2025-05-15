@@ -15,10 +15,16 @@ exports.getBankById = async (req, res) => {
 
 exports.serveCoordinates = async (req, res) => {
   const coords = await DefaultBank.getCoordinates();
-  if (!coords) {
-    return res.status(500).send({ message: "Error fetching Coordinates" });
+  if (!coords || !coords.length) {
+    return res.status(500).send({ message: "No coordinates found" });
   }
-  res.send(coords);
+
+  const formatted = coords.map((bank) => ({
+    geocode: [bank.latitude, bank.longitude],
+    popUp: bank.name,
+  }));
+
+  res.send(formatted);
 };
 
 exports.createBank = async (req, res) => {
