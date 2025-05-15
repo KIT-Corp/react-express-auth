@@ -11,6 +11,7 @@ export default function SiteHeadingAndNav() {
       <ul>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/aboutUs'>About</NavLink></li>
+        <li><NavLink to='/Search'>Search</NavLink></li>
 
         {
           currentUser
@@ -19,6 +20,7 @@ export default function SiteHeadingAndNav() {
               <li><NavLink to={`/users/${currentUser.id}`}>{currentUser.username}</NavLink></li>
             </>
             : <>
+            
               <li><NavLink to='/Login'>Login</NavLink></li>
               <li><NavLink to='/sign-up'>Sign Up</NavLink></li>
               <li><NavLink to='/User'>User</NavLink></li>

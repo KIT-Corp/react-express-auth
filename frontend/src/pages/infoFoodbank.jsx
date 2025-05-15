@@ -1,12 +1,47 @@
 import {BrowserRouter as Router, Route, Link, Routes, useLocation } from 'react-router-dom'; 
-import { useState } from "react";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { Icon } from 'leaflet';
+import "leaflet/dist/leaflet.css";
+import "../styles/index.css";
+import pinIcon from '../photos/pinpointing.png';
 
 export default function Page (props) {
   const location = useLocation();
   const foodbank = location.state
   console.log("info: ", foodbank)
 
+
+//   const markers = [
+//     {
+//       geocode: [40.837168399999996, -73.91148156953344],
+//       popUp: "THE BIBLE CHURCH OF CHRIST"
+//     }
+//   ]
+
+//     const customIcon = new Icon({
+//     iconUrl: pinIcon,
+//     iconSize: [25, 25], 
+//     iconAnchor: [12, 25] // Point at the bottom center of the icon
+//   });
+
   return <>
+
+ {/* <div>
+      <MapContainer center={[40.837168399999996, -73.91148156953344]} zoom={5000}>
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+
+        {markers.map((marker, index) => (
+          <Marker key={index} position={marker.geocode} icon={customIcon}>
+            <Popup>{marker.popUp}</Popup>
+          </Marker>
+        ))}
+      </MapContainer>
+    </div> */}
+
+
 <button>Press here to favorite!</button>
 
     <h1>Food bank name: {foodbank.Program}</h1>
@@ -19,8 +54,8 @@ export default function Page (props) {
         <button>Read other reviews!</button>
     </Link>
 
-    <Link to="/foodbankReview">
+    <Link to="/Form">
         <button>Leave a review!</button>
     </Link>
   </>;
-}
+};

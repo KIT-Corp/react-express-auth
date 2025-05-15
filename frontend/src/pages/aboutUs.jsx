@@ -13,18 +13,29 @@ export default function AboutUs() {
     <p>ENTER MISSION STATEMENT HERE OOOO</p>
 
 
-
-    <img className="id-photos" src= {King} />
+  <div className="aboutPics">
+    <img id="king-photos" src= {King} />
     <p>King McLeod</p>
     <ul>Backend Developer</ul>
+    </div>
+
+    <div className="aboutPics">
     <img className="id-photos" src={Josh} />
     <p>Joshua Young</p>
     <ul>CSS Developer</ul>
+    </div>
+
+    <div className="aboutPics">
     <img className="id-photos" src= {Irma} />
     <p>Irma Barrios</p>
     <ul>Project Manager and Frontend Developer</ul>
+    </div>
+
+    <div className="aboutPics">
     <img className="id-photos" src= {Ty} />
     <p>Tyreese Wray</p>
     <ul>Backend Developer</ul>
+    </div>
+
   </>;
 }

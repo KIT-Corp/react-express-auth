@@ -3,7 +3,6 @@ import { useState } from "react";
 
 export default function Form () {
   return <>
-
     <h1>Leave a review</h1>
 
    <form>
