@@ -28,22 +28,22 @@ class FoodBankPost {
     );
   }
 
-  static async find(food_bank_id) {
-    const query = `SELECT * FROM food_bank_posts WHERE food_bank_id = ?`;
-    const result = await knex.raw(query, [food_bank_id]);
+  static async find(id) {
+    const query = `SELECT * FROM food_bank_posts WHERE id = ?`;
+    const result = await knex.raw(query, [id]);
     const rawFoodBankPostData = result.rows[0];
     return rawFoodBankPostData ? new FoodBankPost(rawFoodBankPostData) : null;
   }
 
   static async update(id, content) {
     const query = `
-      UPDATE foodbank_posts
+      UPDATE food_bank_posts
       SET content = ?
       WHERE id = ?
       RETURNING *
     `;
 
-    const result = await knex.raw(query, [id, content]);
+    const result = await knex.raw(query, [content, id]);
     const rawFoodBankPostData = result.rows[0];
     return rawFoodBankPostData ? new FoodBankPost(rawFoodBankPostData) : null;
   }
@@ -57,7 +57,7 @@ class FoodBankPost {
     `;
     const result = await knex.raw(query, [id]);
     const deletedPost = result.rows[0];
-    return deletedPost ? new UserPost(deletedPost) : null;
+    return deletedPost ? new FoodBankPost(deletedPost) : null;
   }
 
   //delete all posts

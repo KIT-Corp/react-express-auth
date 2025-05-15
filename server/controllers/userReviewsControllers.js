@@ -108,10 +108,10 @@ exports.updateReview = async (req, res) => {
   }
 
   const updatedReview = await UserReview.update(
+    id,
     user_id,
     foodbankId,
-    content,
-    id
+    content
   );
   if (!updatedReview) {
     return res.status(404).send({ message: "User review not found." });

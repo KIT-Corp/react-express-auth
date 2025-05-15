@@ -205,7 +205,7 @@ app.get(
 
 //get a food bank
 app.get(
-  "/api/foodbanks:/id",
+  "/api/foodbanks/:id",
   checkAuthentication,
   foodbankControllers.getFoodBank
 );
@@ -226,7 +226,7 @@ app.patch(
 
 //delete a foodbank
 app.delete(
-  "/api/foodbanks",
+  "/api/foodbanks/:id",
   checkAuthentication,
   foodbankControllers.deleteFoodBank
 );
