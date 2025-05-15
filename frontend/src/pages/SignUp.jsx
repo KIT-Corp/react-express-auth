@@ -14,6 +14,7 @@ export default function SignUpPage() {
   const [email, setEmail] = useState("");
   const [age, setAge] = useState("");
   const [foodBank, setfoodBank] = useState("");
+  const [zipcode, setZipcode] = useState("");
 
   // users shouldn't be able to see the sign up page if they are already logged in.
   // if the currentUser exists in the context, navigate the user to
@@ -27,11 +28,11 @@ export default function SignUpPage() {
       return setErrorText("Missing username or password");
 
     const [user, error] = await registerUser({
-      is_food_bank,
+      is_food_bank: foodBank,
       username,
       email,
       age,
-      passwordHash,
+      password,
       zipcode,
     });
     if (error) return setErrorText(error.message);
@@ -47,6 +48,7 @@ export default function SignUpPage() {
     else if (name === "email") setEmail(value);
     else if (name === "age") setAge(value);
     else if (name === "foodBank") setfoodBank(value);
+    else if (name === "zipcode") setZipcode(value);
   };
 
   return (
@@ -91,7 +93,7 @@ export default function SignUpPage() {
         <label htmlFor="age">Age</label>
         <input
           autoComplete="off"
-          type="age"
+          type="text"
           id="age"
           name="age"
           onChange={handleChange}
@@ -101,11 +103,20 @@ export default function SignUpPage() {
         <label htmlFor="foodBank">Are you a food bank?</label>
         <input
           autoComplete="off"
-          type="foodBank"
+          type="text"
           id="foodBank"
           name="foodBank"
           onChange={handleChange}
           value={foodBank}
+        />
+        <label htmlFor="zipcode">Zip?</label>
+        <input
+          autoComplete="off"
+          type="text"
+          id="zipcode"
+          name="zipcode"
+          onChange={handleChange}
+          value={zipcode}
         />
 
         {/* In reality, we'd want a LOT more validation on signup, so add more things if you have time
