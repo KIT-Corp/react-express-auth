@@ -6,10 +6,17 @@ import {
 
 const baseUrl = "/api/auth";
 
-export const registerUser = async ({ username, password }) => {
+export const registerUser = async (
+  is_food_bank,
+  username,
+  email,
+  age,
+  password,
+  zipcode
+) => {
   return fetchHandler(
     `${baseUrl}/register`,
-    getPostOptions({ username, password })
+    getPostOptions(is_food_bank, username, email, age, password, zipcode)
   );
 };
 
