@@ -14,7 +14,8 @@
     "migrate:rollback": "knex migrate:rollback",
     "seed": "knex seed:run",
     "seed:make": "knex seed:make",
-    "lint": "eslint . --fix"
+    "lint": "eslint . --fix",
+    "killPort": "npx kill-port 3000"
   },
   "keywords": [],
   "author": "",
