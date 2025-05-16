@@ -4,12 +4,14 @@ import { Icon } from 'leaflet';
 import "leaflet/dist/leaflet.css";
 import "../styles/index.css";
 import pinIcon from '../photos/pinpointing.png';
+import { useEffect } from 'react';
 
 export default function Page (props) {
   const location = useLocation();
   const foodbank = location.state
   console.log("info: ", foodbank)
 
+    console.log('hit one')
 
 //   const markers = [
 //     {
