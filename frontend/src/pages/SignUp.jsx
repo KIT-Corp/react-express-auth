@@ -15,7 +15,7 @@ export default function SignUpPage() {
   const [age, setAge] = useState("");
   const [foodBank, setfoodBank] = useState("");
   const [zipcode, setZipcode] = useState("");
-
+  1;
   // users shouldn't be able to see the sign up page if they are already logged in.
   // if the currentUser exists in the context, navigate the user to
   // the /users/:id page for that user, using the currentUser.id value
@@ -24,8 +24,8 @@ export default function SignUpPage() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setErrorText("");
-    if (!username || !password)
-      return setErrorText("Missing username or password");
+    // if (!username || !password)
+    //   return setErrorText("Missing username or password");
 
     const [user, error] = await registerUser({
       is_food_bank: foodBank,

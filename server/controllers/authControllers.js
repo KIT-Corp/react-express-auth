@@ -4,12 +4,14 @@ require("dotenv").config();
 exports.registerUser = async (req, res) => {
   // Request needs a body
   if (!req.body) {
-    return res.status(400).send({ message: "Username and password required" });
+    return res.status(400).send({ message: "Please enter your credentials" });
   }
 
   // Body needs a username and password
   // changed here
   const { is_food_bank, username, email, age, password, zipcode } = req.body;
+
+  console.log(req.body);
 
   if (!is_food_bank || !username || !email || !age || !password || !zipcode) {
     return res.status(400).send({ message: "All of the above are required" });
