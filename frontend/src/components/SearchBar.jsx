@@ -3,18 +3,26 @@ import React, { useState } from 'react';
 import './SearchBar.css';
 import { cfcActiveData } from '../../../API/activefoodbanks0425';
 import { useEffect } from 'react';
+import { borough } from '../adapters/filter-adapter';
 
 export const SearchBar = () => {
   const [input, setInput] = useState('');
   const [results, setResults] = useState([]);
   const [foodbank, setFoodBank] = useState([]);
+  const [boro, setBro] = useState([]);
+
+   useEffect(() => {
+    const doFetch = async () => {
+      const boro = await borough();
+      setBro(boro)
+    };
+    doFetch();
+ },  [])
 
   const fetchData = (value) => {
-    const data = Object.values(cfcActiveData);
-    // we are storing our data into results, it will return true if it matches
-    const results = data.filter(item =>
+    const results = boro.filter(item =>
         // it will lowercase them and look for them
-      item.Program.toLowerCase().includes(value.toLowerCase())
+      item.name.toLowerCase().includes(value.toLowerCase())
     );
     setResults(results);
     console.log(results)
@@ -50,7 +58,7 @@ const clickedFoodBank = (result) => {
           <li className='search-result' key={index} onClick = {() => {
             clickedFoodBank(results[index])
   }
-  }>{item.Program}</li>
+  }>{item.name}</li>
         ))}
       </ul>
       </div>

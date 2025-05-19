@@ -5,6 +5,7 @@ import "../styles/index.css";
 import pinIcon from '../photos/pinpointing.png';
 import { coords } from '../adapters/cords-adapter'
 import { useEffect, useState } from "react";
+import comen from '../photos/comentodos.jpg'
 
 export default function Home () {
   const [cords, setCords] = useState([]);
@@ -28,6 +29,7 @@ export default function Home () {
 
   return (
     <div>
+      <img src={comen} />
 
       <MapContainer center={[40.7128, -74.0060]} zoom={13}>
         <TileLayer
