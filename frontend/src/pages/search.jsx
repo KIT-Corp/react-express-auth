@@ -2,7 +2,7 @@ import { Icon } from 'leaflet';
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Link, Routes, useNavigate } from 'react-router-dom';
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import pinIcon from '../photos/pinpointing.png';
+import pinIcon from '../images/pinpointing.png';
 import { SearchBar } from '../components/SearchBar';
 import { coords } from '../adapters/cords-adapter'
 import { borough } from '../adapters/filter-adapter';
@@ -39,7 +39,6 @@ export default function search() {
         navigate(path,{state: foodbank})
     }
   }, [foodbank])
-
 
  //getting coordinates
   useEffect(() => {
