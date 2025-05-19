@@ -2,7 +2,7 @@
 
 @import 'tailwindcss';
 
-@import "tw-animate-css";
+@import 'tw-animate-css';
 
 /*---break--- */
 
@@ -85,7 +85,7 @@ nav a {
 form {
   padding: 1rem;
   border: 1px solid #ccc;
-  width: 15rem;
+  /* width: 20rem; */
 }
 
 form > h2 {

@@ -4,7 +4,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Icon } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import '../styles/index.css';
-import pinIcon from '../photos/pin.png';
+import pinIcon from '../images/pin.png';
 import { Button } from '../components/ui/button';
 
 export default function Home() {
@@ -31,9 +31,6 @@ export default function Home() {
 
   return (
     <div>
-      <div className="flex flex-col items-center justify-center min-h-svh">
-        <Button>Click me</Button>
-      </div>
       <MapContainer center={[40.7128, -74.006]} zoom={13}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

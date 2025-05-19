@@ -7,17 +7,18 @@ import Home from './pages/home';
 // loginPage will be for foodBankUsers to log in
 import Login from './pages/Login';
 // AboutUs will be the about us page
-import AboutUs from './pages/aboutUs';
+import AboutUs from './pages/AboutUs';
 // import Review from './pages/foodbankReviews';
-import Page from './pages/infoFoodbank';
+import Page from './pages/InfoFoodBank';
 // import update from './pages/updateInfo';
-import Search from './pages/search';
+import Search from './pages/Search';
 import SignUpPage from './pages/SignUp';
 import SiteHeadingAndNav from './components/SiteHeadingAndNav';
 import NotFoundPage from './pages/NotFound';
 import UserContext from './contexts/current-user-context';
 import { checkForLoggedInUser } from './adapters/auth-adapter';
 import UserPage from './pages/User';
+import FoodBankSignUp from './pages/FoodBankSignUp';
 
 export default function App() {
   const { setCurrentUser } = useContext(UserContext);
@@ -61,6 +62,7 @@ export default function App() {
           <Route path="/foodBankInfoPage" element={<Page />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/sign-up" element={<SignUpPage />} />
+          <Route path="/foodbanksignup" element={<FoodBankSignUp />} />
           <Route path="/User" element={<UserPage />} />
           <Route path="/foodbankUser" element={<ifFoodBank />} />
           <Route path="/new" element={<newInfo />} />
