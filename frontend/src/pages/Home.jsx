@@ -1,8 +1,10 @@
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+/** @format */
+
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Icon } from 'leaflet';
 import "leaflet/dist/leaflet.css";
 import "../styles/index.css";
-import pinIcon from '../photos/pinpointing.png';
+import pinIcon from '../images/pinpointing.png';
 import { coords } from '../adapters/cords-adapter'
 import { useEffect, useState } from "react";
 
@@ -18,18 +20,15 @@ export default function Home () {
     doFetch();
  },  [])
 
-
   const customIcon = new Icon({
     iconUrl: pinIcon,
-    iconSize: [25, 25],  // Slightly larger for better visibility
-    iconAnchor: [12, 25] // Point at the bottom center of the icon
+    iconSize: [25, 25], // Slightly larger for better visibility
+    iconAnchor: [12, 25], // Point at the bottom center of the icon
   });
-
 
   return (
     <div>
-
-      <MapContainer center={[40.7128, -74.0060]} zoom={13}>
+      <MapContainer center={[40.7128, -74.006]} zoom={13}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -41,8 +40,6 @@ export default function Home () {
           </Marker>
         ))}
       </MapContainer>
-        
     </div>
-
   );
 }
