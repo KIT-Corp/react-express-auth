@@ -38,12 +38,12 @@ export default function App() {
     const titleMap = {
       '/': 'Home | Comen Todos',
       '/search': 'Search | Comen Todos',
-      '/aboutUs': 'About Us | Comen Todos',
-      '/foodBankInfoPage': 'Food Bank Info | Comen Todos',
-      '/Login': 'Log In | Comen Todos',
+      '/aboutus': 'About Us | Comen Todos',
+      '/foodbankinfopage': 'Food Bank Info | Comen Todos',
+      '/login': 'Log In | Comen Todos',
       '/sign-up': 'Sign Up | Comen Todos',
       '/users/:id"': 'My Page| Comen Todos',
-      '/newInfo': 'New Info | Comen Todos',
+      // '/newInfo': 'New Info | Comen Todos',
       '/*': 'Not Found | Comen Todos',
     };
 
