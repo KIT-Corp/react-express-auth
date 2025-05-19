@@ -1,60 +1,126 @@
-/** @format */
-
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Icon } from 'leaflet';
-import 'leaflet/dist/leaflet.css';
-import '../styles/index.css';
+import { useEffect, useState } from "react";
+import { BrowserRouter as Router, Route, Link, Routes, useNavigate } from 'react-router-dom';
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import pinIcon from '../images/pinpointing.png';
 import { SearchBar } from '../components/SearchBar';
-import { coords } from '../adapters/cords-adapter';
+import { coords } from '../adapters/cords-adapter'
+import { borough } from '../adapters/filter-adapter';
+import "leaflet/dist/leaflet.css";
+import "../styles/index.css";
 
 export default function search() {
-  const [cords, setCords] = useState([]);
+    const [cords, setCords] = useState([]);
+    const [bro, setBro] = useState([]);
+    const [filter, setFiltered] = useState([]);
+    const [foodbank, setFoodBank] = useState([]);
 
+// getting borough names 
+  useEffect(() => {
+    const doFetch = async () => {
+      const boro = await borough();
+      setBro(boro)
+    };
+    doFetch();
+ },  [])
+
+   useEffect(() => {
+    setFiltered(bro);
+  }, [bro]);
+
+    const clickedFoodBank = (result) => {
+    setFoodBank(result)
+}
+  let navigate = useNavigate();
+  useEffect(() => {
+    if (foodbank.length !== 0){
+        // console.log("RUAH", foodbank)
+        let path = '/foodBankInfoPage'
+        navigate(path,{state: foodbank})
+    }
+  }, [foodbank])
+
+ //getting coordinates
   useEffect(() => {
     const doFetch = async () => {
       const cord = await coords();
-      console.log('coords', cord);
-      setCords(cord);
+      setCords(cord)
     };
     doFetch();
-  }, []);
+ },  [])
 
+//  getting pins to render on map
   const customIcon = new Icon({
     iconUrl: pinIcon,
-    iconSize: [25, 25],
-    iconAnchor: [12, 25], // Point at the bottom center of the icon
+    iconSize: [25, 25], 
+    iconAnchor: [12, 25]
   });
 
-  return (
-    <>
-      <h1>Search Food Banks Here: </h1>
-      <SearchBar />
+// getting exact borough locations
+  const filtering = (e) => {
+      const id = e.target.value;
+      let answer = []
 
-      <div>
-        <MapContainer center={[40.7128, -74.006]} zoom={13}>
-          <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
+      if (id === 'bro'){
+        answer = bro.filter(it => it.food_bank_borough === 'Brooklyn');
+      } else if (id === 'bronx'){
+        answer =  bro.filter(it => it.food_bank_borough === 'Bronx');
+      } else if (id === 'man'){
+         answer = bro.filter(it => it.food_bank_borough === 'NY');
+      } else if (id === 'que'){
+         answer = bro.filter(it => it.food_bank_borough === 'Queens');
+      } else if (id === 'staten'){
+         answer = bro.filter(it => it.food_bank_borough === 'Staten Island');
+      } else {
+        answer = []
+      }
 
-          {cords.map((marker, index) => (
-            <Marker key={index} position={marker.geocode} icon={customIcon}>
-              <Popup>{marker.popUp}</Popup>
-            </Marker>
-          ))}
-        </MapContainer>
+      setFiltered(answer);
+  }
+
+
+  return <>
+
+    <div>
+    <h1>Search Food Banks Here: </h1>
+    <SearchBar />
+  </div>
+
+
+<div className='filtering'> 
+
+  <select onChange={filtering}>
+  <option defaultValue="n" selected>-- Select an option --</option>
+  <option value='bro'>brooklyn</option>
+  <option value='bronx'> bronx</option>
+  <option value='man'>manhattan</option>
+  <option value='que'>queens</option>
+  <option value='staten'>staten</option>
+  </select>
+
+   <div>
+        {filter.map((bank, index) => (
+          <ul className='filter-result' key={index} onClick = {() => {
+            clickedFoodBank(filter[index])
+  }}>{bank.name}</ul>
+        ))}
       </div>
+</div>
+    
+    <div>
+      <MapContainer center={[40.7128, -74.0060]} zoom={13}>
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
 
-      <div>
-        <h2>Search by borough:</h2>
-        <p>probably a list here with basic info:</p>
-        <ul>time</ul>
-        <ul>location</ul>
-        <ul>phone number</ul>
-      </div>
-    </>
-  );
-}
+        {cords.map((marker, index) => (
+          <Marker key={index} position={marker.geocode} icon={customIcon}>
+            <Popup>{marker.popUp}</Popup>
+          </Marker>
+        ))}
+      </MapContainer>
+    </div>
+  
+  </>;
+};
