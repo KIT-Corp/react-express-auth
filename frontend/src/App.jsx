@@ -10,8 +10,8 @@ import Login from './pages/Login';
 import AboutUs from './pages/AboutUs';
 // import Review from './pages/foodbankReviews';
 import Page from './pages/InfoFoodBank';
-import Review from './pages/reviews'
-import Form from './pages/reviewsForm' 
+import Review from './pages/Reviews';
+import Form from './pages/ReviewsForm';
 // import update from './pages/updateInfo';
 import Search from './pages/Search';
 import SignUpPage from './pages/SignUp';
