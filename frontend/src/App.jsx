@@ -58,15 +58,15 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<Search />} />
           {/* <Route path="/update" element={<update />} /> */}
-          <Route path="/aboutUs" element={<AboutUs />} />
-          <Route path="/foodBankInfoPage" element={<Page />} />
-          <Route path="/Login" element={<Login />} />
+          <Route path="/aboutus" element={<AboutUs />} />
+          <Route path="/foodbankinfopage" element={<Page />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/sign-up" element={<SignUpPage />} />
           <Route path="/foodbanksignup" element={<FoodBankSignUp />} />
-          <Route path="/User" element={<UserPage />} />
-          <Route path="/foodbankUser" element={<ifFoodBank />} />
-          <Route path="/new" element={<newInfo />} />
-          <Route path="/users/:id" element={<UserPage />} />
+          <Route path="/user" element={<UserPage />} />
+          <Route path="/foodbankuser" element={<ifFoodBank />} />
+          {/* <Route path="/new" element={<newInfo />} /> */}
+          {/* <Route path="/users/:id" element={<UserPage />} /> */}
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
