@@ -4,10 +4,10 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Icon } from 'leaflet';
 import "leaflet/dist/leaflet.css";
 import "../styles/index.css";
-import pinIcon from '../photos/pinpointing.png';
+import pinIcon from '../images/pinpointing.png';
 import { coords } from '../adapters/cords-adapter'
 import { useEffect, useState } from "react";
-import comen from '../photos/comentodos.jpg'
+import comen from '../images/comentodos.jpg'
 
 export default function Home () {
   const [cords, setCords] = useState([]);
