@@ -1,22 +1,25 @@
+/** @format */
+
 import {
   fetchHandler,
   getPostOptions,
   deleteOptions,
-} from "../utils/fetchingUtils";
+} from '../utils/fetchingUtils';
+
 
 const baseUrl = "/api/auth";
 
-export const registerUser = async (
-  is_food_bank,
+export const registerUser = async ({
   username,
-  email,
-  age,
   password,
-  zipcode
-) => {
+  email,
+  is_food_bank,
+  age,
+  zipcode,
+}) => {
   return fetchHandler(
     `${baseUrl}/register`,
-    getPostOptions(is_food_bank, username, email, age, password, zipcode)
+    getPostOptions({ username, password, email, is_food_bank, age, zipcode })
   );
 };
 

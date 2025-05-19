@@ -1,7 +1,10 @@
+/** @format */
+
 import { useContext, useState } from "react";
 import { useNavigate, Navigate } from "react-router-dom";
 import { logUserIn } from "../adapters/auth-adapter";
 import CurrentUserContext from "../contexts/current-user-context";
+import { LoginForm } from "../components/login-form";
 
 export default function SignUp() {
   const navigate = useNavigate();
@@ -32,7 +35,7 @@ export default function SignUp() {
 
   return (
     <>
-      <h1>Login</h1>
+      {/* <h1>Login</h1>
       <form onSubmit={handleSubmit} aria-labelledby="login-heading">
         <h2 id="login-heading">Log back in!</h2>
         <label htmlFor="username">Username</label>
@@ -56,8 +59,20 @@ export default function SignUp() {
         />
 
         <button>Log in!</button>
-      </form>
-      {!!errorText && <p>{errorText}</p>}
+      </form> */}
+
+      <div className="flex min-h-svh flex-col items-center justify-center bg-muted p-6 md:p-10">
+        <div className="w-full max-w-sm md:max-w-3xl">
+          <LoginForm
+            username={username}
+            password={password}
+            setUsername={setUsername}
+            setPassword={setPassword}
+            handleSubmit={handleSubmit}
+          />
+          {!!errorText && <p>{errorText}</p>}
+        </div>
+      </div>
     </>
   );
 }

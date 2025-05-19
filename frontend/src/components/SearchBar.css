@@ -68,4 +68,9 @@ input.focus{
     max-height: 250px;
     background-color: #efefef;
 }
-
+.filter-result{
+    background-color: white;
+}
+.filter-result:hover{
+    background-color:  #ddd;
+}

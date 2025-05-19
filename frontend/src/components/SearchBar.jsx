@@ -3,18 +3,26 @@ import React, { useState } from "react";
 import "./SearchBar.css";
 import { cfcActiveData } from "../../../API/activefoodbanks0425";
 import { useEffect } from "react";
+import { borough } from "../adapters/filter-adapter";
 
 export const SearchBar = () => {
   const [input, setInput] = useState("");
   const [results, setResults] = useState([]);
   const [foodbank, setFoodBank] = useState([]);
+  const [boro, setBro] = useState([]);
 
-  const fetchData = (searchText) => {
-    const data = Object.values(cfcActiveData);
-    // we are storing our data into results, it will return true if it matches
-    const results = data.filter((foodbank) =>
+  useEffect(() => {
+    const doFetch = async () => {
+      const boro = await borough();
+      setBro(boro);
+    };
+    doFetch();
+  }, []);
+
+  const fetchData = (value) => {
+    const results = boro.filter((item) =>
       // it will lowercase them and look for them
-      foodbank.Program.toLowerCase().includes(searchText.toLowerCase())
+      item.name.toLowerCase().includes(value.toLowerCase())
     );
     setResults(results);
     //console.log(results);
@@ -49,16 +57,15 @@ export const SearchBar = () => {
       />
       <div className="results-list">
         <ul>
-          {results.map((foodBank, index) => (
-            //we need a key to identify the "li" in the ul.
+          {results.map((item, index) => (
             <li
               className="search-result"
-              key={foodBank.id}
+              key={index}
               onClick={() => {
                 clickedFoodBank(results[index]);
               }}
             >
-              {foodBank.Program}
+              {item.name}
             </li>
           ))}
         </ul>
