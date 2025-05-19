@@ -1,7 +1,7 @@
 /** @format */
 
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Icon } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -9,7 +9,6 @@ import '../styles/index.css';
 import pinIcon from '../images/pinpointing.png';
 import { SearchBar } from '../components/SearchBar';
 import { coords } from '../adapters/cords-adapter';
-import { useEffect, useState } from 'react';
 
 export default function search() {
   const [cords, setCords] = useState([]);
