@@ -3,7 +3,6 @@
 import { useContext, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 // home is where original users can log in
-
 import Home from './pages/Home';
 // loginPage will be for foodBankUsers to log in
 import Login from './pages/Login';

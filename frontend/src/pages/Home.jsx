@@ -4,7 +4,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Icon } from 'leaflet';
 import "leaflet/dist/leaflet.css";
 import "../styles/index.css";
-import pinIcon from '../images/pinpointing.png';
+import pinIcon from '../photos/pinpointing.png';
 import { coords } from '../adapters/cords-adapter'
 import { useEffect, useState } from "react";
 
