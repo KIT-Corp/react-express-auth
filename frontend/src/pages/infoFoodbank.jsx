@@ -17,18 +17,17 @@ import { useEffect } from 'react';
 // import { coords } from '../components/FetchSpecific'
 
 export default function Page(props) {
-  const location = useLocation();
-  const foodbank = location.state;
-  console.log('info: ', foodbank);
+  const location = useLocation()
+  
+  const foodbank = location.state
+  console.log("info: ", foodbank)
 
-  console.log('hit one');
-
-  //   const markers = [
-  //     {
-  //       geocode: [40.837168399999996, -73.91148156953344],
-  //       popUp: "THE BIBLE CHURCH OF CHRIST"
-  //     }
-  //   ]
+//   const markers = [
+//     {
+//       geocode: [40.837168399999996, -73.91148156953344],
+//       popUp: "THE BIBLE CHURCH OF CHRIST"
+//     }
+//   ]
 
   //     const customIcon = new Icon({
   //     iconUrl: pinIcon,
@@ -55,17 +54,12 @@ export default function Page(props) {
 
       <button>Press here to favorite!</button>
 
-      <h1>Food bank name: {foodbank.Program}</h1>
-      <p>
-        Located at: {foodbank.Address.Street}, {foodbank.Address.Borough},{' '}
-        {foodbank.Address.ZIP}
-      </p>
-      <p>Days Opened: {foodbank.Schedules[0].Days}</p>
-      <p>
-        Hours: {foodbank.Schedules[0].openingHour} -{' '}
-        {foodbank.Schedules[0].closingHour}{' '}
-      </p>
-      <p>Phone Number: {foodbank.Phone}</p>
+    <h1>Food bank name: {foodbank.name}</h1>
+    <p>Located at: {foodbank.food_bank_street}, {foodbank.food_bank_borough}, {foodbank.food_bank_zip}</p>
+    <p>Days Opened: {foodbank.days_open}</p>
+    <p>Hours: {foodbank.opening_hour} - {foodbank.closing_hour} </p>
+    <p>Phone Number: {foodbank.phone_number}</p>
+
 
       <Link to="/Review">
         <button>Read other reviews!</button>
