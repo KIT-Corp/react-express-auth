@@ -110,9 +110,9 @@ class User {
     const query = `
       UPDATE users
       SET username = ?,
-      email = ?,
-      age = ?,
-      zipcode = ?
+        email = ?,
+        age = ?,
+        zipcode = ?
       WHERE id = ?
       RETURNING *
     `;

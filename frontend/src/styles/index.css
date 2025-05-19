@@ -98,6 +98,8 @@ form > h2 {
   font-weight: bold;
   font-style: italic;
 }
+
+/* SHADCN styling */
 /*---break--- */
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -213,4 +215,14 @@ form > h2 {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.id-photos{
+  height: 300px;
+  width: 200px;
+}
+
+#king-photos{
+  height: 350px;
+  width: 200px;
 }

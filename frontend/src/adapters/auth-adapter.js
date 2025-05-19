@@ -6,7 +6,8 @@ import {
   deleteOptions,
 } from '../utils/fetchingUtils';
 
-const baseUrl = '/api/auth';
+
+const baseUrl = "/api/auth";
 
 export const registerUser = async ({
   username,

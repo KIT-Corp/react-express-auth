@@ -44,6 +44,8 @@ exports.registerUser = async (req, res) => {
   This allows the server to authenticate the user and authorize them to access protected resources.
   */
 
+  //Upon registering a new user, we need to set the request session id to be the newly created
+  //user id from the database.
   //console.log(req.session);
   req.session.userId = user.id;
   res.send(user);

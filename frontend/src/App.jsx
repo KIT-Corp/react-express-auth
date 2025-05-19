@@ -3,6 +3,7 @@
 import { useContext, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 // home is where original users can log in
+
 import Home from './pages/Home';
 // loginPage will be for foodBankUsers to log in
 import Login from './pages/Login';
@@ -10,6 +11,8 @@ import Login from './pages/Login';
 import AboutUs from './pages/AboutUs';
 // import Review from './pages/foodbankReviews';
 import Page from './pages/InfoFoodBank';
+import Review from './pages/reviews'
+import Form from './pages/reviewsForm' 
 // import update from './pages/updateInfo';
 import Search from './pages/Search';
 import SignUpPage from './pages/SignUp';
@@ -56,6 +59,8 @@ export default function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/Review" element={<Review />} />
+          <Route path="/Form" element={<Form />} />
           <Route path="/search" element={<Search />} />
           {/* <Route path="/update" element={<update />} /> */}
           <Route path="/aboutus" element={<AboutUs />} />

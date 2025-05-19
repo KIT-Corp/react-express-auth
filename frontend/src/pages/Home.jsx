@@ -2,26 +2,23 @@
 
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Icon } from 'leaflet';
-import 'leaflet/dist/leaflet.css';
-import '../styles/index.css';
-import pinIcon from '../images/pin.png';
-import { Button } from '../components/ui/button';
+import "leaflet/dist/leaflet.css";
+import "../styles/index.css";
+import pinIcon from '../images/pinpointing.png';
+import { coords } from '../adapters/cords-adapter'
+import { useEffect, useState } from "react";
 
-export default function Home() {
-  const markers = [
-    {
-      geocode: [40.68725165, -73.94364819530983],
-      popUp: 'Location one',
-    },
-    {
-      geocode: [40.68935165, -73.93364819],
-      popUp: 'Location two',
-    },
-    {
-      geocode: [40.68225165, -73.95364819],
-      popUp: 'Location three',
-    },
-  ];
+export default function Home () {
+  const [cords, setCords] = useState([]);
+
+  useEffect(() => {
+    const doFetch = async () => {
+      const cord = await coords();
+      console.log('coords', cord)
+      setCords(cord)
+    };
+    doFetch();
+ },  [])
 
   const customIcon = new Icon({
     iconUrl: pinIcon,
@@ -37,7 +34,7 @@ export default function Home() {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-        {markers.map((marker, index) => (
+        {cords.map((marker, index) => (
           <Marker key={index} position={marker.geocode} icon={customIcon}>
             <Popup>{marker.popUp}</Popup>
           </Marker>

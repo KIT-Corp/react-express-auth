@@ -29,6 +29,10 @@ const logErrors = require('./middleware/logErrors');
 const authControllers = require('./controllers/authControllers');
 const userControllers = require('./controllers/userControllers');
 const reviewsControllers = require('./controllers/userReviewsControllers');
+const userPostControllers = require('./controllers/userPostControllers');
+const foodbankPostControllers = require('./controllers/foodbankPostControllers');
+const foodbankControllers = require('./controllers/foodBankControllers');
+const defaultBanksControllers = require('./controllers/DefaultBankControllers');
 const app = express();
 
 // middleware
@@ -119,20 +123,67 @@ app.get(
 );
 
 ///////////////////////////////
-// Fallback Routes
-///////////////////////////////
-
-///////////////////////////////
 // User Post routes
 ///////////////////////////////
+
+//get all posts from a specific user
+app.get(
+  "/api/users/:id/posts",
+  checkAuthentication,
+  userPostControllers.getPostsByUser
+);
+
+//create a new post
+app.post(
+  "/api/users/posts/create",
+  checkAuthentication,
+  userPostControllers.createUserPost
+);
+
+//update a post
+app.patch(
+  "/api/users/:id/posts",
+  checkAuthentication,
+  userPostControllers.updateUserPost
+);
+
+//delete a post
+app.delete(
+  "/api/users/:id/posts",
+  checkAuthentication,
+  userPostControllers.deleteUserPost
+);
 
 ///////////////////////////////
 // FoodBank Post routes
 ///////////////////////////////
 
-///////////////////////////////
-// FoodBank schedule routes
-///////////////////////////////
+app.get(
+  "/api/foodbank/:id/posts",
+  checkAuthentication,
+  foodbankPostControllers.getPostsByFoodBank
+);
+
+//create a new post
+app.post(
+  "/api/foodbank/posts/create",
+  checkAuthentication,
+  foodbankPostControllers.createFoodBankPost
+);
+
+//update a post
+app.patch(
+  "/api/foodbank/:id/posts",
+  checkAuthentication,
+  foodbankPostControllers.updateFoodBankPost
+);
+
+//delete a post
+app.delete(
+  "/api/foodbank/:id/posts",
+  checkAuthentication,
+  foodbankPostControllers.deleteFoodBankPost
+);
 
 ///////////////////////////////
 // Comments routes
@@ -140,6 +191,75 @@ app.get(
 
 ///////////////////////////////
 // Foodbank Routes
+///////////////////////////////
+
+//list food bank
+app.get(
+  "/api/foodbanks",
+  checkAuthentication,
+  foodbankControllers.listFoodBanks
+);
+
+//get a food bank
+app.get(
+  "/api/foodbanks/:id",
+  checkAuthentication,
+  foodbankControllers.getFoodBank
+);
+
+//create a foodbank
+app.post(
+  "/api/foodbanks/",
+  checkAuthentication,
+  foodbankControllers.createFoodBank
+);
+
+//update a foodbank
+app.patch(
+  "/api/foodbanks/:id",
+  checkAuthentication,
+  foodbankControllers.updateFoodBank
+);
+
+//delete a foodbank
+app.delete(
+  "/api/foodbanks/:id",
+  checkAuthentication,
+  foodbankControllers.deleteFoodBank
+);
+
+///////////////////////////////
+// Default Bank routes
+///////////////////////////////
+
+//list food bank
+app.get("/api/banks", defaultBanksControllers.listBanks);
+
+//get serve coordinates
+app.get("/api/banks/coordinates", defaultBanksControllers.serveCoordinates);
+
+//get a food bank by id
+app.get("/api/banks/:id", defaultBanksControllers.getBankById);
+
+//create a foodbank
+app.post("/api/banks", checkAuthentication, defaultBanksControllers.createBank);
+
+//update a foodbank
+app.patch(
+  "/api/banks/:id",
+  checkAuthentication,
+  defaultBanksControllers.updateFoodBank
+);
+
+//delete a foodbank
+app.delete(
+  "/api/banks/:id",
+  checkAuthentication,
+  defaultBanksControllers.deleteFoodBank
+);
+
+///////////////////////////////
+// Fallback Routes
 ///////////////////////////////
 app.get('/api/foodbanksignup');
 // Requests meant for the API will be sent along to the router.
