@@ -1,71 +1,193 @@
-*{
-    font-family: Arial, Helvetica, sans-serif;
+/* * {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.input-wrapper{
-    background-color: white;
-    width: 100%;
-    border-radius: 10px;
-    height: 2.5 rem;
-    padding: 0 15px;
-    box-shadow: 0px 0px 8px #ddd;
-    display: flex;
-    align-items: center;
-    max-height: 35px;
-    max-width: 300px;
+.input-wrapper {
+  background-color: white;
+  width: 100%;
+  border-radius: 10px;
+  height: 2.5 rem;
+  padding: 0 15px;
+  box-shadow: 0px 0px 8px #ddd;
+  display: flex;
+  align-items: center;
+  max-height: 35px;
+  max-width: 300px;
 }
 
-input{
-    background-color: transparent;
-    border: none;
-    height: 100%;
-    font-size: 1.25rem;
-    width: 100%;
-    margin-left: 5px;
+input {
+  background-color: transparent;
+  border: none;
+  height: 100%;
+  font-size: 1.25rem;
+  width: 100%;
+  margin-left: 5px;
 }
 
-input.focus{
-    outline: none;
+input.focus {
+  outline: none;
 }
 
-.results-list{
-    width: 100%;
-    background-color: white;
-    display: flex;
-    margin-left: -275px;
-    flex-direction: column;
-    box-shadow: 0px 0px 8px #ddd;
-    border-radius: 10px;
-    margin-top:310px;
-    max-height: 300px;
-    overflow-y: scroll;
-    z-index: 10000;
+.results-list {
+  width: 100%;
+  background-color: white;
+  display: flex;
+  margin-left: -275px;
+  flex-direction: column;
+  box-shadow: 0px 0px 8px #ddd;
+  border-radius: 10px;
+  margin-top: 310px;
+  max-height: 300px;
+  overflow-y: scroll;
+  z-index: 10000;
 }
 
-.search-result{
-    padding: 10px 20px;
-
+.search-result {
+  padding: 10px 20px;
 }
 
-.search-result:hover{
-    background-color: #efefef;
+.search-result:hover {
+  background-color: #efefef;
 }
 
 .inputForm {
-    background-color: #ddd;
-    max-width: 230px;
+  background-color: #ddd;
+  max-width: 230px;
 }
 
-.reviewInput{
-    width: 500px;
-    max-height: 500px;
-    background-color: white;
+.reviewInput {
+  width: 500px;
+  max-height: 500px;
+  background-color: white;
 }
 
-.commentInput{
-    margin-left: 50px;
-    width: 430px;
-    max-height: 250px;
-    background-color: #efefef;
+.commentInput {
+  margin-left: 50px;
+  width: 430px;
+  max-height: 250px;
+  background-color: #efefef;
+} */
+
+* {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
+/* Wrapper around the input */
+.input-wrapper {
+  background-color: var(--color-white);
+  width: 100%;
+  max-width: 300px;
+  border-radius: 10px;
+  padding: 0 15px;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+  position: relative; /* for safe stacking context */
+}
+
+.input-wrapper:focus-within {
+  box-shadow: 0 0 8px var(--color-accent);
+}
+
+/* Input styles */
+input {
+  background-color: transparent;
+  border: none;
+  height: 100%;
+  font-size: 1.1rem;
+  width: 100%;
+  margin-left: 5px;
+  color: var(--color-text);
+}
+
+input:focus {
+  outline: none;
+}
+
+input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* List of search results */
+.results-list {
+  width: 100%;
+  max-width: 300px;
+  background-color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 10; /* lowered from 10000 */
+  margin-top: 0.5rem;
+  position: absolute;
+}
+
+/* Single search result */
+.search-result {
+  padding: 10px 20px;
+  cursor: pointer;
+  color: var(--color-text);
+  transition: background-color 0.2s ease;
+}
+
+.search-result:hover {
+  background-color: var(--color-bg);
+}
+
+/* Input form styling */
+.inputForm {
+  background-color: var(--color-bg);
+  max-width: 230px;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--color-primary);
+}
+
+/* Review input box */
+.reviewInput {
+  width: 100%;
+  max-width: 500px;
+  max-height: 500px;
+  background-color: var(--color-white);
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Comment input */
+.commentInput {
+  margin-left: 50px;
+  width: 100%;
+  max-width: 430px;
+  max-height: 250px;
+  background-color: var(--color-bg);
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--color-primary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .reviewInput,
+  .commentInput {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* ✅ What Changed:
+All background-color: white → var(--color-white) for consistency.
+
+Shadow colors softened with rgba(...) for a more modern look.
+
+:focus-within added to .input-wrapper to highlight on user interaction.
+
+Removed fixed margin hacks (like margin-left: -275px) and replaced with position: absolute; where appropriate—adjust as needed for layout.
+
+Aligned font and transitions with your main style. */
