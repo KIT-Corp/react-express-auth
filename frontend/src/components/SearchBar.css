@@ -191,3 +191,16 @@ Shadow colors softened with rgba(...) for a more modern look.
 Removed fixed margin hacks (like margin-left: -275px) and replaced with position: absolute; where appropriate—adjust as needed for layout.
 
 Aligned font and transitions with your main style. */
+
+.commentInput {
+  margin-left: 50px;
+  width: 430px;
+  max-height: 250px;
+  background-color: #efefef;
+}
+.filter-result {
+  background-color: white;
+}
+.filter-result:hover {
+  background-color: #ddd;
+}

@@ -1,8 +1,9 @@
-// import { useNavigate } from 'react-router-dom';
-// import React, { useState } from 'react';
-// import './SearchBar.css';
-// import { cfcActiveData } from '../../../API/activefoodbanks0425';
-// import { useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import "./SearchBar.css";
+import { cfcActiveData } from "../../../API/activefoodbanks0425";
+import { useEffect } from "react";
+import { borough } from "../adapters/filter-adapter";
 
 // export const SearchBar = () => {
 //   const [input, setInput] = useState('');
@@ -59,22 +60,31 @@
 
 //Josh changes//
 
-import { useNavigate } from "react-router-dom";
-import React, { useState, useEffect } from "react";
-import "./SearchBar.css";
-import { cfcActiveData } from "../../../API/activefoodbanks0425";
-
 export const SearchBar = () => {
   const [input, setInput] = useState("");
   const [results, setResults] = useState([]);
   const [foodbank, setFoodBank] = useState([]);
+  const [boro, setBro] = useState([]);
+
+  useEffect(() => {
+    const doFetch = async () => {
+      const boro = await borough();
+      setBro(boro);
+    };
+    doFetch();
+  }, []);
   const navigate = useNavigate();
 
   const fetchData = (value) => {
+    const results = boro.filter((item) =>
+      item.name.toLowerCase().includes(value.toLowerCase())
+    );
+
     const data = Object.values(cfcActiveData);
     const filtered = data.filter((item) =>
       item.Program.toLowerCase().includes(value.toLowerCase())
     );
+
     setResults(filtered);
   };
 
@@ -101,6 +111,21 @@ export const SearchBar = () => {
         onChange={(e) => handleChange(e.target.value)}
         aria-label="Search for a food bank program"
       />
+      <div className="results-list">
+        <ul>
+          {results.map((item, index) => (
+            <li
+              className="search-result"
+              key={index}
+              onClick={() => {
+                clickedFoodBank(results[index]);
+              }}
+            >
+              {item.name}
+            </li>
+          ))}
+        </ul>
+      </div>
       {results.length > 0 && (
         <ul className="results-list">
           {results.map((item, index) => (
