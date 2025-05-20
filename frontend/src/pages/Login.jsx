@@ -1,16 +1,16 @@
 /** @format */
 
-import { useContext, useState } from 'react';
-import { useNavigate, Navigate } from 'react-router-dom';
-import { logUserIn } from '../adapters/auth-adapter';
-import CurrentUserContext from '../contexts/current-user-context';
-import { LoginForm } from '../components/login-form';
+import { useContext, useState } from "react";
+import { useNavigate, Navigate } from "react-router-dom";
+import { logUserIn } from "../adapters/auth-adapter";
+import CurrentUserContext from "../contexts/current-user-context";
+import { LoginForm } from "../components/login-form";
 
 export default function SignUp() {
   const navigate = useNavigate();
-  const [errorText, setErrorText] = useState('');
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [errorText, setErrorText] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
 
   // users shouldn't be able to see the login page if they are already logged in.
@@ -19,11 +19,15 @@ export default function SignUp() {
   if (currentUser) return <Navigate to={`/users/${currentUser.id}`} />;
 
   const handleSubmit = async (event) => {
+    //prevent clearing the form
     event.preventDefault();
-    setErrorText('');
+    setErrorText("");
 
     const [user, error] = await logUserIn({ username, password });
-    if (error) return setErrorText(error.message);
+    if (error) {
+      //console.log(error);
+      return setErrorText(error.message);
+    }
 
     setCurrentUser(user);
     navigate(`/users/${user.id}`);
