@@ -9,7 +9,8 @@ import Login from "./pages/Login";
 // AboutUs will be the about us page
 import AboutUs from "./pages/AboutUs";
 // import Review from './pages/foodbankReviews';
-import Page from "./pages/InfoFoodbank";
+import Page from "./pages/InfoFoodBank";
+
 import Review from "./pages/Reviews";
 import Form from "./pages/ReviewsForm";
 // import update from './pages/updateInfo';

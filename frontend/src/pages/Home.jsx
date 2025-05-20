@@ -1,3 +1,4 @@
+
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { Icon } from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -15,7 +16,9 @@ export default function Home() {
   useEffect(() => {
     const doFetch = async () => {
       const cord = await coords();
+      
       console.log("coords", cord);
+
       setCords(cord);
     };
     doFetch();

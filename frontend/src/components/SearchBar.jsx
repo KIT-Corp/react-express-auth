@@ -28,13 +28,17 @@ export const SearchBar = () => {
     console.log(results);
   };
 
-  const handleChange = (value) => {
-    setInput(value);
-    fetchData(value);
+  const handleChange = (searchText) => {
+    setInput(searchText);
+    // console.log("text: " + searchText + " " + "input: " + input);
+    fetchData(searchText);
   };
   const clickedFoodBank = (result) => {
     setFoodBank(result);
   };
+
+  //when we click on a foodbank, useEffect automatically loads /foodBankInfoPage because
+  //useEffect has the state 'foodBank' in as it's dependency
   let navigate = useNavigate();
   useEffect(() => {
     if (foodbank.length !== 0) {
