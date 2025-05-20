@@ -3,7 +3,6 @@
 import { useContext, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 // home is where original users can log in
-import Review from "./pages/reviews";
 import Home from "./pages/home";
 // loginPage will be for foodBankUsers to log in
 import Login from "./pages/Login";
@@ -71,7 +70,7 @@ export default function App() {
           <Route path="/user" element={<UserPage />} />
           <Route path="/foodbankuser" element={<ifFoodBank />} />
           {/* <Route path="/new" element={<newInfo />} /> */}
-          {/* <Route path="/users/:id" element={<UserPage />} /> */}
+          <Route path="/users/:id" element={<UserPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
