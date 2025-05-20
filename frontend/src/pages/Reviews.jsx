@@ -1,63 +1,75 @@
 import React, { useEffect, useState } from "react";
+import { getUser } from "../adapters/user-adapter";
+import { getFoodBankReviews } from "../adapters/review-adapters";
+import { useLocation } from "react-router-dom";
+import "../styles/reviewsPage.css";
 
 export default function ReviewsPage() {
-  const [userReviews, setUserReviews] = useState([]);
+  const location = useLocation();
   const [otherReviews, setOtherReviews] = useState([]);
 
-  useEffect(() => {
-    // Replace with actual fetch logic
-    fetch("/api/reviews/mine")
-      .then((res) => res.json())
-      .then((data) => setUserReviews(data));
+  const foodbank = location.state;
 
-    fetch("/api/reviews/others")
-      .then((res) => res.json())
-      .then((data) => setOtherReviews(data));
-  }, []);
+  useEffect(() => {
+    const fetchReviewsAndUsers = async () => {
+      const [reviews, error] = await getFoodBankReviews(foodbank.id);
+      if (error) {
+        console.warn("Error fetching reviews:", error);
+        return;
+      }
+
+      // Fetch all users for each review
+      const mergedData = await Promise.all(
+        reviews.map(async (review) => {
+          const [userData, userError] = await getUser(review.user_id);
+          const reviewAndUsers = { ...review, user: userData };
+          if (userError) {
+            console.warn("Error fetching user:", userError);
+            return { ...review, user: null };
+          }
+          return { ...review, user: userData };
+        })
+      );
+
+      setOtherReviews(mergedData);
+      console.log("Fetched merged reviews:", mergedData);
+    };
+
+    fetchReviewsAndUsers();
+  }, [foodbank.id]);
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      {/* NavBar placeholder */}
-      <nav className="bg-white shadow p-4 text-lg font-semibold sticky top-0 z-10">
-        Reviews
-      </nav>
+    <div className="page">
+      <div className="top-half">
+        <div className="h1-btn">
+          <h1>Reviews</h1>
+          <p>Over {otherReviews.length} reviews!</p>
+        </div>
+        <div>
+          <button>
+            <div className="writeReview">
+              <i className="pencil-Icon">
+                <img src="https://static-00.iconduck.com/assets.00/edit-icon-1022x1024-kes437mc.png"></img>
+              </i>
+              <p>Write a review!</p>
+            </div>
+          </button>
+        </div>
+      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-6 max-w-7xl mx-auto">
+      <br></br>
+
+      <div className="bottom">
         {/* Left column - Other reviews */}
         <div>
-          <h2 className="text-xl font-bold mb-4">What others are saying</h2>
-          <div className="space-y-4">
+          <h2 className="bottomTitle">What others are saying</h2>
+          <div className="review-tab">
             {otherReviews.map((review, index) => (
-              <div
-                key={index}
-                className="bg-white p-4 rounded-xl shadow-sm border border-gray-200"
-              >
-                <div className="text-sm font-semibold">{review.author}</div>
-                <div className="text-yellow-500">
-                  {"⭐️".repeat(review.rating)}
-                </div>
-                <p className="mt-1 text-gray-700 text-sm">{review.content}</p>
-                <div className="text-xs text-gray-400 mt-2">{review.date}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Right column - Your reviews */}
-        <div>
-          <h2 className="text-xl font-bold mb-4">Your reviews</h2>
-          <div className="space-y-4">
-            {userReviews.map((review, index) => (
-              <div
-                key={index}
-                className="bg-white p-4 rounded-xl shadow-md border border-blue-100"
-              >
-                <div className="text-sm font-semibold">You</div>
-                <div className="text-yellow-500">
-                  {"⭐️".repeat(review.rating)}
-                </div>
-                <p className="mt-1 text-gray-700 text-sm">{review.content}</p>
-                <div className="text-xs text-gray-400 mt-2">{review.date}</div>
+              <div key={index} className="reviewBlock">
+                <div className="username">{review.user.username}</div>
+                <div className="date">{review.created_at.slice(0, 10)}</div>
+                <div className="stars">{"⭐️".repeat(5)}</div>
+                <div className="content">{review.content}</div>
               </div>
             ))}
           </div>

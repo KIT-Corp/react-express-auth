@@ -1,0 +1,87 @@
+h1 {
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+button {
+  background-color: #079dd9; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button :hover {
+  background-color: #065270;
+}
+
+.writeReview {
+  display: flex;
+  justify-content: space-between;
+}
+
+img {
+  width: 25px;
+}
+
+.top-half {
+  display: flex;
+  justify-content: space-between;
+  width: 95vw;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.review-tab {
+  background-color: rgb(202, 200, 200);
+  display: flex;
+  flex-wrap: wrap;
+  padding: 4em 0;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  align-content: flex-start;
+  gap: 1.5rem;
+  justify-content: space-around;
+}
+.reviewBlock {
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 1.5em;
+  width: 300px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: Arial, sans-serif;
+}
+
+.reviewBlock .username {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.reviewBlock .date {
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 0.5rem;
+}
+
+.reviewBlock .stars {
+  color: #1c9dea;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.reviewBlock .content {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.4;
+}
