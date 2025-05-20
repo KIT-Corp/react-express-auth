@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
-import "./SearchBar.css";
+import "../styles/SearchBar.css";
 import { cfcActiveData } from "../../../API/activefoodbanks0425";
 import { useEffect } from "react";
 import { borough } from "../adapters/filter-adapter";
@@ -25,7 +25,7 @@ export const SearchBar = () => {
       item.name.toLowerCase().includes(value.toLowerCase())
     );
     setResults(results);
-    //console.log(results);
+    console.log(results);
   };
 
   const handleChange = (searchText) => {

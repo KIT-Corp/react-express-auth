@@ -1,4 +1,3 @@
-/** @format */
 
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { Icon } from "leaflet";
@@ -8,6 +7,8 @@ import pinIcon from "../images/pinpointing.png";
 import { coords } from "../adapters/cords-adapter";
 import { useEffect, useState } from "react";
 import comen from "../images/comentodos.jpg";
+import { Carousel } from "../components/carousel";
+import { slides } from "../components/carouselData.json";
 
 export default function Home() {
   const [cords, setCords] = useState([]);
@@ -15,7 +16,9 @@ export default function Home() {
   useEffect(() => {
     const doFetch = async () => {
       const cord = await coords();
-      //console.log("coords", cord);
+      
+      console.log("coords", cord);
+
       setCords(cord);
     };
     doFetch();
@@ -29,7 +32,9 @@ export default function Home() {
 
   return (
     <div>
-      <img src={comen} />
+      {/* <img src={comen} /> */}
+
+      <Carousel data={slides} />
 
       <MapContainer center={[40.7128, -74.006]} zoom={13}>
         <TileLayer

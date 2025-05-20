@@ -1,0 +1,16 @@
+{
+  "slides": [
+    {
+      "src": "../images/comentodos",
+      "alt": "comen todos cover art"
+    },
+    {
+      "src": "../images/pinpointing.png",
+      "alt": "image 2"
+    },
+    {
+      "src": "../images/comentodos.jpg",
+      "alt": "image 3"
+    }
+  ]
+}

@@ -1,8 +1,8 @@
 /** @format */
 
-@import 'tailwindcss';
+@import "tailwindcss";
 
-@import 'tw-animate-css';
+@import "tw-animate-css";
 
 /*---break--- */
 
@@ -217,12 +217,12 @@ form > h2 {
   }
 }
 
-.id-photos{
+.id-photos {
   height: 300px;
   width: 200px;
 }
 
-#king-photos{
+#king-photos {
   height: 350px;
   width: 200px;
 }
