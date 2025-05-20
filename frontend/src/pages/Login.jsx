@@ -1,43 +1,78 @@
+/** @format */
+
 import { useContext, useState } from "react";
 import { useNavigate, Navigate } from "react-router-dom";
 import { logUserIn } from "../adapters/auth-adapter";
 import CurrentUserContext from "../contexts/current-user-context";
+import { LoginForm } from "../components/login-form";
 
-export default function SignUp () {
+export default function SignUp() {
   const navigate = useNavigate();
-  const [errorText, setErrorText] = useState('');
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [errorText, setErrorText] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
 
   // users shouldn't be able to see the login page if they are already logged in.
-  // if the currentUser exists in the context, navigate the user to 
+  // if the currentUser exists in the context, navigate the user to
   // the /users/:id page for that user, using the currentUser.id value
   if (currentUser) return <Navigate to={`/users/${currentUser.id}`} />;
 
   const handleSubmit = async (event) => {
+    //prevent clearing the form
     event.preventDefault();
-    setErrorText('');
+    setErrorText("");
 
     const [user, error] = await logUserIn({ username, password });
-    if (error) return setErrorText(error.message);
+    if (error) {
+      //console.log(error);
+      return setErrorText(error.message);
+    }
 
     setCurrentUser(user);
     navigate(`/users/${user.id}`);
   };
 
-  return <>
-    <h1>Login</h1>
-    <form onSubmit={handleSubmit} aria-labelledby="login-heading">
-      <h2 id='login-heading'>Log back in!</h2>
-      <label htmlFor="username">Username</label>
-      <input type="text" autoComplete="username" id="username" name="username" value={username} onChange={(e) => setUsername(e.target.value)} />
+  return (
+    <>
+      {/* <h1>Login</h1>
+      <form onSubmit={handleSubmit} aria-labelledby="login-heading">
+        <h2 id="login-heading">Log back in!</h2>
+        <label htmlFor="username">Username</label>
+        <input
+          type="text"
+          autoComplete="username"
+          id="username"
+          name="username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
 
-      <label htmlFor="password">Password</label>
-      <input type="password" autoComplete="current-password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <label htmlFor="password">Password</label>
+        <input
+          type="password"
+          autoComplete="current-password"
+          id="password"
+          name="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
 
-      <button>Log in!</button>
-    </form>
-    {!!errorText && <p>{errorText}</p>}
-  </>;
+        <button>Log in!</button>
+      </form> */}
+
+      <div className="flex min-h-svh flex-col items-center justify-center bg-muted p-6 md:p-10">
+        <div className="w-full max-w-sm md:max-w-3xl">
+          <LoginForm
+            username={username}
+            password={password}
+            setUsername={setUsername}
+            setPassword={setPassword}
+            handleSubmit={handleSubmit}
+          />
+          {!!errorText && <p>{errorText}</p>}
+        </div>
+      </div>
+    </>
+  );
 }

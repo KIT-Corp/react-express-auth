@@ -1,32 +1,63 @@
-import {BrowserRouter as Router, Route, Link, Routes, useLocation } from 'react-router-dom'; 
+/** @format */
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Routes,
+  useLocation,
+  data,
+} from "react-router-dom";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import { Icon } from 'leaflet';
+import { Icon } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "../styles/index.css";
-import pinIcon from '../photos/pinpointing.png';
+// import { coords } from '../components/FetchSpecific'
+import pinIcon from "../images/pinpointing.png";
+import { useEffect, useState } from "react";
+import {
+  getFoodBankReviews,
+  getAllUserReviews,
+  createReview,
+} from "../adapters/review-adapters";
 
-export default function Page (props) {
+export default function Page(props) {
   const location = useLocation();
-  const foodbank = location.state
-  console.log("info: ", foodbank)
 
+  const foodbank = location.state;
+  console.log("info: ", foodbank);
+  const [sampleReviews, setSampleReviews] = useState([]);
 
-//   const markers = [
-//     {
-//       geocode: [40.837168399999996, -73.91148156953344],
-//       popUp: "THE BIBLE CHURCH OF CHRIST"
-//     }
-//   ]
+  useEffect(() => {
+    const fetchReviews = async () => {
+      const [data, error] = await getFoodBankReviews(foodbank.id);
+      if (error) {
+        console.warn("Error fetching reviews:", error);
+      } else {
+        setSampleReviews(data.slice(0, 3));
+        console.log("Fetched sample reviews:", data.slice(0, 3));
+      }
+    };
 
-//     const customIcon = new Icon({
-//     iconUrl: pinIcon,
-//     iconSize: [25, 25], 
-//     iconAnchor: [12, 25] // Point at the bottom center of the icon
-//   });
+    fetchReviews();
+  }, [foodbank.id]);
 
-  return <>
+  //   const markers = [
+  //     {
+  //       geocode: [40.837168399999996, -73.91148156953344],
+  //       popUp: "THE BIBLE CHURCH OF CHRIST"
+  //     }
+  //   ]
 
- {/* <div>
+  //     const customIcon = new Icon({
+  //     iconUrl: pinIcon,
+  //     iconSize: [25, 25],
+  //     iconAnchor: [12, 25] // Point at the bottom center of the icon
+  //   });
+
+  return (
+    <>
+      {/* <div>
       <MapContainer center={[40.837168399999996, -73.91148156953344]} zoom={5000}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -41,21 +72,36 @@ export default function Page (props) {
       </MapContainer>
     </div> */}
 
+      <button>Press here to favorite!</button>
 
-<button>Press here to favorite!</button>
+      <h1>Food bank name: {foodbank.name}</h1>
+      <p>
+        Located at: {foodbank.food_bank_street}, {foodbank.food_bank_borough},{" "}
+        {foodbank.food_bank_zip}
+      </p>
+      <p>Days Opened: {foodbank.days_open}</p>
+      <p>
+        Hours: {foodbank.opening_hour} - {foodbank.closing_hour}{" "}
+      </p>
+      <p>Phone Number: {foodbank.phone_number}</p>
+      <br></br>
+      <br></br>
+      <div>
+        <h2>Some reviews from this foodbank:</h2>
+        <div>
+          {sampleReviews.map((review, index) => (
+            <p key={index}>{review.content}</p>
+          ))}
+        </div>
+      </div>
 
-    <h1>Food bank name: {foodbank.Program}</h1>
-    <p>Located at: {foodbank.Address.Street}, {foodbank.Address.Borough}, {foodbank.Address.ZIP}</p>
-    <p>Days Opened: {foodbank.Schedules[0].Days}</p>
-    <p>Hours: {foodbank.Schedules[0].openingHour} - {foodbank.Schedules[0].closingHour} </p>
-    <p>Phone Number: {foodbank.Phone}</p>
-
-     <Link to="/Review">
+      <Link to="/Review" state={foodbank}>
         <button>Read other reviews!</button>
-    </Link>
+      </Link>
 
-    <Link to="/Form">
+      <Link to="/Form" state={foodbank}>
         <button>Leave a review!</button>
-    </Link>
-  </>;
-};
+      </Link>
+    </>
+  );
+}

@@ -1,0 +1,59 @@
+h1 {
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+button {
+  background-color: #079dd9; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button :hover {
+  background-color: #065270;
+}
+
+.writeReview {
+  display: flex;
+  justify-content: space-between;
+}
+
+img {
+  width: 25px;
+}
+
+.top-half {
+  display: flex;
+  justify-content: space-between;
+  width: 95vw;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.review-tab {
+  background-color: rgb(202, 200, 200);
+  display: flex;
+  flex-wrap: wrap;
+  padding: 4em 0;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  justify-content: space-around;
+  align-content: flex-start;
+}
+.reviewBlock {
+  background-color: white;
+  border: rgb(191, 191, 191) solid;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 7px 29px 0px;
+  border-radius: 6px;
+  padding: 1em;
+  height: 150px;
+  margin: 2em;
+}
