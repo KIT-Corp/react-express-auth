@@ -1,25 +1,25 @@
 /** @format */
 
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { Icon } from 'leaflet';
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { Icon } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "../styles/index.css";
-import pinIcon from '../images/pinpointing.png';
-import { coords } from '../adapters/cords-adapter'
+import pinIcon from "../images/pinpointing.png";
+import { coords } from "../adapters/cords-adapter";
 import { useEffect, useState } from "react";
-import comen from '../photos/comentodos.jpg'
+import comen from "../photos/comentodos.jpg";
 
-export default function Home () {
+export default function Home() {
   const [cords, setCords] = useState([]);
 
   useEffect(() => {
     const doFetch = async () => {
       const cord = await coords();
-      console.log('coords', cord)
-      setCords(cord)
+      //console.log("coords", cord);
+      setCords(cord);
     };
     doFetch();
- },  [])
+  }, []);
 
   const customIcon = new Icon({
     iconUrl: pinIcon,
@@ -31,8 +31,7 @@ export default function Home () {
     <div>
       <img src={comen} />
 
-      <MapContainer center={[40.7128, -74.0060]} zoom={13}>
-
+      <MapContainer center={[40.7128, -74.006]} zoom={13}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
