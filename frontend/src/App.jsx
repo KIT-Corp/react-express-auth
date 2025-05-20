@@ -1,26 +1,26 @@
 /** @format */
 
-import { useContext, useEffect } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { useContext, useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 // home is where original users can log in
-import Home from './pages/Home';
+import Home from "./pages/Home";
 // loginPage will be for foodBankUsers to log in
-import Login from './pages/Login';
+import Login from "./pages/Login";
 // AboutUs will be the about us page
-import AboutUs from './pages/AboutUs';
+import AboutUs from "./pages/AboutUs";
 // import Review from './pages/foodbankReviews';
-import Page from './pages/InfoFoodBank';
-import Review from './pages/Reviews';
-import Form from './pages/ReviewsForm';
+import Page from "./pages/InfoFoodBank";
+import Review from "./pages/Reviews";
+import Form from "./pages/ReviewsForm";
 // import update from './pages/updateInfo';
-import Search from './pages/Search';
-import SignUpPage from './pages/SignUp';
-import SiteHeadingAndNav from './components/SiteHeadingAndNav';
-import NotFoundPage from './pages/NotFound';
-import UserContext from './contexts/current-user-context';
-import { checkForLoggedInUser } from './adapters/auth-adapter';
-import UserPage from './pages/User';
-import FoodBankSignUp from './pages/FoodBankSignUp';
+import Search from "./pages/Search";
+import SignUpPage from "./pages/SignUp";
+import SiteHeadingAndNav from "./components/SiteHeadingAndNav";
+import NotFoundPage from "./pages/NotFound";
+import UserContext from "./contexts/current-user-context";
+import { checkForLoggedInUser } from "./adapters/auth-adapter";
+import UserPage from "./pages/User";
+import FoodBankSignUp from "./pages/FoodBankSignUp";
 
 export default function App() {
   const { setCurrentUser } = useContext(UserContext);
@@ -38,18 +38,18 @@ export default function App() {
   // 👇 This is where the title-setting effect goes
   useEffect(() => {
     const titleMap = {
-      '/': 'Home | Comen Todos',
-      '/search': 'Search | Comen Todos',
-      '/aboutus': 'About Us | Comen Todos',
-      '/foodbankinfopage': 'Food Bank Info | Comen Todos',
-      '/login': 'Log In | Comen Todos',
-      '/sign-up': 'Sign Up | Comen Todos',
-      '/users/:id"': 'My Page| Comen Todos',
+      "/": "Home | Comen Todos",
+      "/search": "Search | Comen Todos",
+      "/aboutus": "About Us | Comen Todos",
+      "/foodbankinfopage": "Food Bank Info | Comen Todos",
+      "/login": "Log In | Comen Todos",
+      "/sign-up": "Sign Up | Comen Todos",
+      '/users/:id"': "My Page| Comen Todos",
       // '/newInfo': 'New Info | Comen Todos',
-      '/*': 'Not Found | Comen Todos',
+      "/*": "Not Found | Comen Todos",
     };
 
-    document.title = titleMap[location.pathname] || 'Comen Todos';
+    document.title = titleMap[location.pathname] || "Comen Todos";
   }, [location.pathname]);
 
   return (
@@ -70,7 +70,7 @@ export default function App() {
           <Route path="/user" element={<UserPage />} />
           <Route path="/foodbankuser" element={<ifFoodBank />} />
           {/* <Route path="/new" element={<newInfo />} /> */}
-          {/* <Route path="/users/:id" element={<UserPage />} /> */}
+          <Route path="/users/:id" element={<UserPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>

@@ -1,20 +1,22 @@
 /** @format */
 
-const User = require('../models/User');
-require('dotenv').config();
+const User = require("../models/User");
+require("dotenv").config();
 
 exports.registerUser = async (req, res) => {
   // Request needs a body
   if (!req.body) {
-    return res.status(400).send({ message: 'Username and password required' });
+    return res.status(400).send({ message: "Please enter your credentials" });
   }
 
   // Body needs a username and password
   // changed here
   const { is_food_bank, username, email, age, password, zipcode } = req.body;
 
+  console.log(req.body);
+
   if (
-    typeof is_food_bank !== 'boolean' ||
+    typeof is_food_bank !== "boolean" ||
     !username?.trim() ||
     !email?.trim() ||
     !password ||
@@ -22,7 +24,7 @@ exports.registerUser = async (req, res) => {
   ) {
     return res
       .status(400)
-      .send({ message: 'All required fields must be provided' });
+      .send({ message: "All required fields must be provided" });
   }
 
   // User.create will handle hashing the password and storing in the database
@@ -54,7 +56,7 @@ exports.registerUser = async (req, res) => {
 exports.loginUser = async (req, res) => {
   // Request needs a body
   if (!req.body) {
-    return res.status(400).send({ message: 'All of the above are required' });
+    return res.status(400).send({ message: "All of the above are required" });
   }
 
   // Body needs a username and password
@@ -62,19 +64,19 @@ exports.loginUser = async (req, res) => {
   if (!username || !password) {
     return res
       .status(400)
-      .send({ message: 'Missing or incorrect values, please try again' });
+      .send({ message: "Missing or incorrect values, please try again" });
   }
 
   // Username must be valid
   const user = await User.findByUsername(username);
   if (!user) {
-    return res.status(404).send({ message: 'User not found.' });
+    return res.status(404).send({ message: "User not found." });
   }
 
   // Password must match
   const isPasswordValid = await user.isValidPassword(password);
   if (!isPasswordValid) {
-    return res.status(401).send({ message: 'Invalid credentials.' });
+    return res.status(401).send({ message: "Invalid credentials." });
   }
 
   // Add the user id to the cookie and send the user data back
@@ -93,7 +95,7 @@ exports.loginUser = async (req, res) => {
 exports.showMe = async (req, res) => {
   // no cookie with an id => Not authenticated.
   if (!req.session.userId) {
-    return res.status(401).send({ message: 'User must be authenticated.' });
+    return res.status(401).send({ message: "User must be authenticated." });
   }
 
   // cookie with an id => here's your user info!
@@ -109,13 +111,13 @@ exports.showMe = async (req, res) => {
 };
 
 exports.logoutUser = (req, res) => {
-  console.log('Session object at logout hit:', req.session);
+  console.log("Session object at logout hit:", req.session);
   if (!req.session.userId) {
-    return res.status(401).send({ message: 'User must be authenticated.' });
+    return res.status(401).send({ message: "User must be authenticated." });
   }
   // Remove the user id from the cookie
-  console.log('Before clearing sesion', req.session);
+  console.log("Before clearing sesion", req.session);
   req.session = null; // "erase" the cookie
-  console.log('After clearing session', req.session);
-  res.status(200).send({ message: 'User logged out.' });
+  console.log("After clearing session", req.session);
+  res.status(200).send({ message: "User logged out." });
 };
