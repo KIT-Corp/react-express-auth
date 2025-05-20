@@ -1,7 +1,7 @@
 /** @format */
 
 import { SignupForm } from '../components/signup-form';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate, Navigate, Link } from 'react-router-dom';
 import CurrentUserContext from '../contexts/current-user-context';
 import { registerUser } from '../adapters/auth-adapter';
@@ -30,6 +30,20 @@ export default function SignUpPage() {
     if (!username || !password)
       return setErrorText('Missing username or password');
 
+    if (isFoodBank) {
+      // Navigate to FoodBankSignUp page with the partial user info
+      return navigate('/foodbanksignup', {
+        state: {
+          username,
+          password,
+          email,
+          age,
+          zipcode,
+          isFoodBank,
+        },
+      });
+    }
+
     const [user, error] = await registerUser({
       username,
       password,
@@ -39,7 +53,7 @@ export default function SignUpPage() {
       zipcode: zipcode.trim(),
     });
     if (error) return setErrorText(error.message);
-
+    console.log('first: ', user);
     setCurrentUser(user);
     navigate(`/users/${user.id}`);
   };
@@ -81,13 +95,13 @@ export default function SignUpPage() {
               <u>Log in!</u>
             </Link>
           </p>
-          <p>
-            {/* TEMPORARY LINK UNTIL CHECKBOX FUNTIONALITY WORKS*/}
-            Signing up as a Food Bank?{' '}
+          {/* <p> */}
+          {/* TEMPORARY LINK UNTIL CHECKBOX FUNTIONALITY WORKS*/}
+          {/* Signing up as a Food Bank?{' '}
             <Link to="/foodbanksignup">
               <u>Sign up here!</u>
             </Link>
-          </p>
+          </p> */}
         </div>
       </div>
     </>
