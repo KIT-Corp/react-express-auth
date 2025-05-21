@@ -87,22 +87,22 @@ export default function search() {
 
   return (
     <>
+      <h1>Begin your search here: </h1>
       <div className="full-search">
-        <h1>Begin your search here: </h1>
         <SearchBar />
-      </div>
 
-      <div className="filtering">
-        <select onChange={filtering}>
-          <option defaultValue="n" selected>
-            -- Select an option --
-          </option>
-          <option value="bro">brooklyn</option>
-          <option value="bronx"> bronx</option>
-          <option value="man">manhattan</option>
-          <option value="que">queens</option>
-          <option value="staten">staten</option>
-        </select>
+        <div className="filtering">
+          <select onChange={filtering}>
+            <option defaultValue="n" selected>
+              -- Select an option --
+            </option>
+            <option value="bro">brooklyn</option>
+            <option value="bronx"> bronx</option>
+            <option value="man">manhattan</option>
+            <option value="que">queens</option>
+            <option value="staten">staten</option>
+          </select>
+        </div>
 
         <div>
           {filter.map((bank, index) => (

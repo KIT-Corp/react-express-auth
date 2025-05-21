@@ -10,17 +10,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-/* sizing of map container */
-.leaflet-container {
-  height: 300px;
-  width: 1000px;
-  align-items: right;
-}
-
-.leaflet-map {
-  height: 100px;
-  width: 300px;
-}
 
 body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -268,6 +257,7 @@ form > h2 {
   }
 }
 
+/* About Us */
 .id-photos {
   height: 300px;
   width: 200px;
@@ -278,6 +268,7 @@ form > h2 {
   width: 200px;
 }
 
+/* App Page */
 .footer {
   text-align: center;
   padding: 1rem;
@@ -287,6 +278,7 @@ form > h2 {
   margin-top: 2rem;
 }
 
+/* Home Page */
 .home {
   font-size: 12vh;
   text-align: center;
@@ -296,4 +288,21 @@ form > h2 {
   font-size: 5vh;
   text-align: center;
   font-style: italic;
+}
+
+/* sizing of map container */
+.leaflet-container {
+  height: 300px;
+  width: 1000px;
+  align-items: right;
+}
+
+.leaflet-map {
+  height: 100px;
+  width: 300px;
+}
+
+.full-search {
+  display: flex;
+  flex-direction: row;
 }
