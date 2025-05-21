@@ -1,33 +1,45 @@
 // import { console } from "inspector";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 import React, { useState } from "react";
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
 import "../styles/carousel.css";
-import comen from "../images/comentodos.jpg";
-import pin from "../images/pinpointing.png";
+import staten from "../images/statenisland.jpg";
+import man from "../images/manhattan.jpg";
+import brook from "../images/brooklyn.jpg";
+import bronx from "../images/bronx.jpg";
+import queens from "../images/queens.jpg";
 
 // { data }
 export const Carousel = () => {
   const [slide, setSlide] = useState(0);
 
   const nextSlide = () => {
-    setSlide(slide === slide.length - 1 ? 0 : slide + 1);
+    setSlide(slide === slides.length - 1 ? 0 : slide + 1);
   };
   const prevSlide = () => {
-    setSlide(slide === slide.length - 1 ? 0 : slide - 1);
+    setSlide(slide === slides.length - 1 ? 0 : slide - 1);
   };
 
   let slides = [
     {
-      src: comen,
-      alt: "comen todos cover art",
+      src: staten,
+      alt: "staten island",
     },
     {
-      src: pin,
-      alt: "image 2",
+      src: man,
+      alt: "manhattan",
     },
     {
-      src: comen,
-      alt: "image 3",
+      src: brook,
+      alt: "brooklyn",
+    },
+    {
+      src: bronx,
+      alt: "bronx",
+    },
+    {
+      src: queens,
+      alt: "queens",
     },
   ];
 
@@ -59,16 +71,30 @@ export const Carousel = () => {
                 key={index}
                 onClick={() => setSlide(index)}
                 className={
-                  slide === index ? "inicator" : "indicator indicator-inactive"
+                  slide === index ? "indicator" : "indicator indicator-inactive"
                 }
               ></button>
             );
           })}
         </span>
       </div>
-
       <div className="statement">
-        <p>enter mission statement here</p>
+        <p>
+          Welcome to our project called Comen Todos. We chose the name Comen
+          Todos from a Spanish phrase that says, "Adonde come uno, comen dos, y
+          adonde comen dos, comen todos" which means "Where one eats, everyone
+          eats." We decided to focus on the topic of food insecurity. In times
+          like these, we're reminded of how fortunate we are to have access to
+          food — but many people aren't as lucky and don't have the resources to
+          easily tackle this issue. That's why we created Comen Todos — a
+          website made for the community, designed to bring together important
+          information that would normally take hours to find, all in one place.
+        </p>
+        <div className="butt">
+          <Link to="/AboutUs">
+            <button className="aboutus-butt">Learn more about us</button>
+          </Link>
+        </div>
       </div>
     </div>
   );

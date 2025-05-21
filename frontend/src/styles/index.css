@@ -14,19 +14,20 @@
 }
 /* sizzing of map container */
 .leaflet-container {
-  height: 500px;
-  width: 500px;
+  height: 300px;
+  width: 840px;
+  align-items: right;
 }
 
 .leaflet-map {
-  height: 150px;
-  width: 150px;
+  height: 100px;
+  width: 100px;
 }
 
 body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   margin: 0;
-  background-color: #7bdff2;
+  background-color: #fffdf6;
 }
 
 main {
@@ -43,6 +44,7 @@ ul {
 
 button {
   padding-inline: 0.25rem;
+  background-color: #ffc9b9;
 }
 
 input,
@@ -63,10 +65,10 @@ header {
 }
 
 #logo {
-  font-size: 1.5rem;
+  /* font-size: 1.5rem;
   font-weight: bold;
   text-decoration: none;
-  color: #fff;
+  color: #fff; */
 }
 
 nav ul {
@@ -225,4 +227,23 @@ form > h2 {
 #king-photos {
   height: 350px;
   width: 200px;
+}
+
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #222;
+  color: #eee;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+}
+
+.home {
+  font-size: 75px;
+  text-align: center;
+}
+
+.adonde {
+  text-align: center;
+  font-style: italic;
 }

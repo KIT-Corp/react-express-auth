@@ -1,15 +1,16 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useContext } from "react";
 import CurrentUserContext from "../contexts/current-user-context";
+import comen from "../images/comentodos.jpg";
 
 export default function SiteHeadingAndNav() {
   const { currentUser } = useContext(CurrentUserContext);
 
   return (
     <header>
-      <a id="logo" href="/">
-        Comen Todos
-      </a>
+      <Link to="/" id="logo">
+        <img src={comen} />
+      </Link>
       <nav>
         <ul>
           <li>
