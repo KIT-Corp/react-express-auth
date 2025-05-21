@@ -1,0 +1,89 @@
+.about-page {
+  font-family: Arial, sans-serif;
+  padding: 1rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid black;
+  padding-bottom: 0.5rem;
+}
+
+.nav-bar .icon {
+  margin-left: 1rem;
+}
+
+h1,
+h2 {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.problem-section,
+.solution-section {
+  border: 2px solid black;
+  padding: 1rem;
+  margin: 2rem 0;
+}
+
+.problem-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.problem-content p {
+  width: 50%;
+}
+
+.graph-placeholder {
+  width: 50%;
+  height: 200px;
+  background-color: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: italic;
+}
+
+.team-section {
+  border: 2px solid black;
+  padding: 1rem;
+}
+
+.team-members {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.member {
+  width: 25%;
+  text-align: center;
+  padding: 1rem;
+}
+
+.profile-pic {
+  width: 80px;
+  height: 80px;
+  border: 2px solid black;
+  border-radius: 50%;
+  margin: auto;
+  background-color: #eee;
+}
+
+.social-icons {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+.bio {
+  font-size: 0.9rem;
+}
