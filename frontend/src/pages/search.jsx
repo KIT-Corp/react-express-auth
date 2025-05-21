@@ -87,8 +87,8 @@ export default function search() {
 
   return (
     <>
-      <div>
-        <h1>Search Food Banks Here: </h1>
+      <div className="full-search">
+        <h1>Begin your search here: </h1>
         <SearchBar />
       </div>
 
