@@ -3,8 +3,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 300px;
+  width: 400px;
   height: 300px;
+  padding-left: 100px;
 }
 
 .slide {
@@ -27,7 +28,7 @@
 }
 
 .arrow-left {
-  left: 1rem;
+  left: 9rem;
 }
 
 .arrow-right {
@@ -67,13 +68,13 @@
 
 .statement {
   padding-top: 25px;
-  padding-left: 59px;
-  width: 400px;
+  padding-left: 250px;
+  width: 650px;
 }
 
 .main-selections {
   display: flex;
-  width: 99%;
+  width: 1150px;
   padding: 20px;
 }
 
