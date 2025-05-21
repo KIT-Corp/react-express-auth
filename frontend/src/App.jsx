@@ -9,7 +9,7 @@ import Login from "./pages/Login";
 // AboutUs will be the about us page
 import AboutUs from "./pages/AboutUs";
 // import Review from './pages/foodbankReviews';
-import Page from "./pages/InfoFoodBank";
+import Page from "./pages/infoFoodbank";
 
 import Review from "./pages/Reviews";
 import Form from "./pages/ReviewsForm";
@@ -68,7 +68,7 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/sign-up" element={<SignUpPage />} />
           <Route path="/foodbanksignup" element={<FoodBankSignUp />} />
-          <Route path="/user" element={<UserPage />} />
+          {/* <Route path="/user" element={<UserPage />} /> */}
           <Route path="/foodbankuser" element={<ifFoodBank />} />
           {/* <Route path="/new" element={<newInfo />} /> */}
           <Route path="/users/:id" element={<UserPage />} />
