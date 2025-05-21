@@ -1,10 +1,11 @@
 /** @format */
 
-import { cn } from '@/lib/utils';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import "./login-form.css";
 
 export function LoginForm({
   className,
@@ -16,7 +17,7 @@ export function LoginForm({
   ...props
 }) {
   return (
-    <div className={cn('flex flex-col gap-6', className)} {...props}>
+    <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card className="overflow-hidden p-0">
         <CardContent className="grid p-0 md:grid-cols-2 w-[650px] md:w-[800px]">
           <form className="p-6 md:p-8" onSubmit={handleSubmit}>
@@ -61,7 +62,7 @@ export function LoginForm({
               </Button>
               <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
                 <span className="bg-card text-muted-foreground relative z-10 px-2">
-                  Or continue as a{' '}
+                  Or continue as a{" "}
                   <a href="/">
                     <u>Guest</u>
                   </a>
@@ -97,7 +98,7 @@ export function LoginForm({
                 </Button>
               </div> */}
               <div className="text-center text-sm">
-                Don&apos;t have an account?{' '}
+                Don&apos;t have an account?{" "}
                 <a href="/sign-up" className="underline underline-offset-4">
                   Sign up
                 </a>
@@ -120,3 +121,81 @@ export function LoginForm({
     </div>
   );
 }
+
+//josh changes//
+// import { Button } from "@/components/ui/button";
+// import { Card, CardContent } from "@/components/ui/card";
+// import { Input } from "@/components/ui/input";
+// import { Label } from "@/components/ui/label";
+// import { Link } from "react-router-dom";
+// import "./login-form.css";
+
+// export default function LoginForm() {
+//   return (
+//     <div className="login-page">
+//       <Card className="login-card">
+//         <CardContent className="login-card-content">
+//           <form className="login-form-section">
+//             <div className="login-heading">
+//               <h2 className="login-title">Login</h2>
+//               <p className="login-subtitle">Welcome back! Please sign in.</p>
+//             </div>
+
+//             <div className="login-input-group">
+//               <div className="space-y-2">
+//                 <Label htmlFor="email">Email</Label>
+//                 <Input
+//                   className="login-input"
+//                   id="email"
+//                   type="email"
+//                   placeholder="you@example.com"
+//                   required
+//                 />
+//               </div>
+
+//               <div className="space-y-2">
+//                 <Label htmlFor="password">Password</Label>
+//                 <Input
+//                   className="login-input"
+//                   id="password"
+//                   type="password"
+//                   placeholder="••••••••"
+//                   required
+//                 />
+//               </div>
+//             </div>
+
+//             <Button type="submit" className="login-button">
+//               Log In
+//             </Button>
+
+//             <div className="login-divider">
+//               <span>or</span>
+//             </div>
+
+//             <p className="login-footer">
+//               Continue as a{" "}
+//               <Link to="/" className="login-link">
+//                 guest
+//               </Link>
+//             </p>
+//             <p className="login-footer">
+//               Don't have an account?{" "}
+//               <Link to="/signup" className="login-link">
+//                 Sign up
+//               </Link>
+//             </p>
+//           </form>
+
+//           <div className="login-image-container">
+//             <img
+//               src="/login-img.png"
+//               alt="Login Visual"
+//               className="login-image"
+//             />
+//           </div>
+//         </CardContent>
+//       </Card>
+//     </div>
+//   );
+// }

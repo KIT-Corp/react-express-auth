@@ -5,7 +5,6 @@ import "../styles/index.css";
 import pinIcon from "../images/pinpointing.png";
 import { coords } from "../adapters/cords-adapter";
 import { useEffect, useState } from "react";
-import comen from "../images/comentodos.jpg";
 import { Carousel } from "../components/carousel";
 
 export default function Home() {
