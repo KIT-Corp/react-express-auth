@@ -1,6 +1,7 @@
 /** @format */
 
 //hi
+
 import {
   BrowserRouter as Router,
   Route,
@@ -24,7 +25,7 @@ import {
 
 export default function Page(props) {
   const location = useLocation();
-
+  console.log("hi");
   const foodbank = location.state;
   console.log("info: ", foodbank);
   const [sampleReviews, setSampleReviews] = useState([]);

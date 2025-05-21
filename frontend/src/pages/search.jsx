@@ -37,7 +37,7 @@ export default function search() {
   const clickedFoodBank = (result) => {
     setFoodBank(result);
   };
-
+  //hi
   let navigate = useNavigate();
   useEffect(() => {
     if (foodbank.length !== 0) {
