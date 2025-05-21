@@ -1,13 +1,146 @@
 /** @format */
 
-/* Tailwind and animations */
 @import "tailwindcss";
+
 @import "tw-animate-css";
 
-/* ========== Custom Variant ========== */
-@custom-variant dark (&:is(.dark *));
+/*---break--- */
 
-/* ========== Root Variables (Light Mode) ========== */
+@custom-variant dark (&:is(.dark *));
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* sizzing of map container */
+.leaflet-container {
+  height: 300px;
+  width: 1150px;
+  align-items: right;
+}
+
+.leaflet-map {
+  height: 100px;
+  width: 100px;
+}
+
+body {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  margin: 0;
+  background-color: #fffdf6;
+}
+
+main {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: start;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  padding-inline: 0.25rem;
+  background-color: #ffc9b9;
+}
+
+input,
+label {
+  display: block;
+}
+
+input {
+  margin-bottom: 1rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: #503d3f;
+}
+
+#logo {
+  /* font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff; */
+}
+
+nav ul {
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+nav a {
+  display: block;
+  color: #fff;
+}
+
+form {
+  padding: 1rem;
+  border: 1px solid #ccc;
+  /* width: 20rem; */
+}
+
+form > h2 {
+  margin-bottom: 1rem;
+}
+
+/* automatically added by NavLink component */
+.active {
+  color: #f7d6e0;
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* SHADCN styling */
+/*---break--- */
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+/*---break--- */
 :root {
   --color-bg: #f4f1ee; /* Almond Beige */
   --color-header: #2c2b2a; /* Deep Soil */
@@ -137,149 +270,31 @@
   }
 }
 
-/* ========== Reset & Layout ========== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  background-color: var(--color-bg);
-  color: var(--color-text);
-}
-
-main {
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: flex-start;
-}
-
-/* ========== Header & Navigation ========== */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem 1rem;
-  background: #503d3f;
-}
-
-#logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-decoration: none;
-  color: #fff;
-}
-
-nav ul {
-  display: flex;
-  gap: 1rem;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-nav a {
-  display: block;
-  color: #fff;
-}
-
-.active {
-  color: #f7d6e0;
-  font-weight: bold;
-  font-style: italic;
-}
-
-/* ========== Forms ========== */
-form {
-  padding: 1rem;
-  border: 1px solid #ccc;
-  width: 15rem;
-  border-radius: 6px;
-  background-color: var(--color-white);
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-form > h2 {
-  margin-bottom: 1rem;
-  color: var(--color-primary);
-}
-
-input,
-label {
-  display: block;
-}
-
-input {
-  margin-bottom: 1rem;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
-  color: var(--color-text);
-  background-color: var(--color-white);
-}
-
-input:focus,
-input:focus-visible {
-  border-color: var(--color-accent);
-  outline: none;
-}
-
-input.error {
-  border-color: var(--color-error);
-  background-color: #ffe6e6;
-}
-
-/* ========== Buttons ========== */
-button {
-  padding: 0.25rem 0.5rem;
-  background-color: var(--color-button);
-  color: var(--color-white);
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover,
-button:focus,
-button:focus-visible {
-  background-color: var(--color-primary);
-  outline: none;
-}
-
-/* ========== Typography ========== */
-ul {
-  list-style: none;
-}
-
-/* ========== Leaflet Map ========== */
-.leaflet-container {
-  height: 31.25rem; /* 500px */
-  width: 100%;
-  max-width: 100%;
-}
-
-.leaflet-map {
-  height: 9.375rem; /* 150px */
-  width: 9.375rem;
-}
-
-/* ========== Images ========== */
 .id-photos {
-  height: 18.75rem;
-  width: 12.5rem;
-  object-fit: cover;
-  border-radius: 6px;
+  height: 300px;
+  width: 200px;
 }
 
 #king-photos {
-  height: 21.875rem;
-  width: 12.5rem;
-  object-fit: cover;
-  border-radius: 6px;
+  height: 350px;
+  width: 200px;
+}
+
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #222;
+  color: #eee;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+}
+
+.home {
+  font-size: 75px;
+  text-align: center;
+}
+
+.adonde {
+  text-align: center;
+  font-style: italic;
 }

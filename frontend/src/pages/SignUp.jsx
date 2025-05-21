@@ -1,7 +1,5 @@
-/** @format */
-
 import { SignupForm } from '../components/signup-form';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate, Navigate, Link } from 'react-router-dom';
 import CurrentUserContext from '../contexts/current-user-context';
 import { registerUser } from '../adapters/auth-adapter';
@@ -11,12 +9,12 @@ import { registerUser } from '../adapters/auth-adapter';
 export default function SignUpPage() {
   const navigate = useNavigate();
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
-  const [errorText, setErrorText] = useState('');
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [email, setEmail] = useState('');
-  const [age, setAge] = useState('');
-  const [zipcode, setZipcode] = useState('');
+  const [errorText, setErrorText] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [age, setAge] = useState("");
+  const [zipcode, setZipcode] = useState("");
   const [isFoodBank, setIsFoodBank] = useState(false);
 
   // users shouldn't be able to see the sign up page if they are already logged in.
@@ -26,32 +24,46 @@ export default function SignUpPage() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setErrorText('');
-    if (!username || !password)
-      return setErrorText('Missing username or password');
+    setErrorText("");
+    // if (!username || !password)
+    //   return setErrorText("Missing username or password");
+
+    if (isFoodBank) {
+      // Navigate to FoodBankSignUp page with the partial user info
+      return navigate('/foodbanksignup', {
+        state: {
+          username,
+          password,
+          email,
+          age,
+          zipcode,
+          isFoodBank,
+        },
+      });
+    }
 
     const [user, error] = await registerUser({
       username,
       password,
       email,
       is_food_bank: isFoodBank,
-      age: age === '' ? null : parseInt(age, 10),
+      age: age === "" ? null : parseInt(age, 10),
       zipcode: zipcode.trim(),
     });
     if (error) return setErrorText(error.message);
-
+    console.log('first: ', user);
     setCurrentUser(user);
     navigate(`/users/${user.id}`);
   };
 
   const handleChange = (event) => {
     const { name, value, type, checked } = event.target;
-    if (name === 'username') setUsername(value);
-    else if (name === 'password') setPassword(value);
-    else if (name === 'email') setEmail(value);
-    else if (name === 'age') setAge(value);
-    else if (name === 'zipcode') setZipcode(value);
-    else if (name === 'isFoodBank') setIsFoodBank(checked);
+    if (name === "username") setUsername(value);
+    else if (name === "password") setPassword(value);
+    else if (name === "email") setEmail(value);
+    else if (name === "age") setAge(value);
+    else if (name === "zipcode") setZipcode(value);
+    else if (name === "isFoodBank") setIsFoodBank(checked);
   };
 
   return (
@@ -76,18 +88,18 @@ export default function SignUpPage() {
           />
           {!!errorText && <p className="text-sm text-red-500">{errorText}</p>}
           <p>
-            Already have an account with us?{' '}
+            Already have an account with us?{" "}
             <Link to="/login">
               <u>Log in!</u>
             </Link>
           </p>
-          <p>
-            {/* TEMPORARY LINK UNTIL CHECKBOX FUNTIONALITY WORKS*/}
-            Signing up as a Food Bank?{' '}
+          {/* <p> */}
+          {/* TEMPORARY LINK UNTIL CHECKBOX FUNTIONALITY WORKS*/}
+          {/* Signing up as a Food Bank?{' '}
             <Link to="/foodbanksignup">
               <u>Sign up here!</u>
             </Link>
-          </p>
+          </p> */}
         </div>
       </div>
     </>

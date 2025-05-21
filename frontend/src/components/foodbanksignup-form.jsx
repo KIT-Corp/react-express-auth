@@ -6,11 +6,12 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useState } from 'react';
 
-export function FoodBankSignupForm({ className, onSubmit }) {
+export function FoodBankSignupForm({ className, onSubmit, loading }) {
   const [foodBankName, setFoodBankName] = useState('');
   const [street, setStreet] = useState('');
   const [borough, setBorough] = useState('');
   const [zipcode, setZipcode] = useState(''); // pre-filled value can be set here if needed
+  const [type, setType] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
 
   const boroughOptions = [
@@ -24,7 +25,7 @@ export function FoodBankSignupForm({ className, onSubmit }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    onSubmit({ foodBankName, street, borough, zipcode, phoneNumber });
+    onSubmit({ foodBankName, street, borough, zipcode, phoneNumber, type });
   }
 
   return (
@@ -87,6 +88,38 @@ export function FoodBankSignupForm({ className, onSubmit }) {
                   />
                 </div>
                 <div className="grid gap-3">
+                  <Label htmlFor="type">Type</Label>
+                  <select
+                    id="type"
+                    value={type}
+                    onChange={(e) => setType(e.target.value)}
+                    className="block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                    required
+                  >
+                    <option value="">-- Select a Type --</option>
+                    <option value="Food Pantry">Food Pantry (FP)</option>
+                    <option value="Food Pantry Mobile">
+                      Food Pantry - Mobile (FPM)
+                    </option>
+                    <option value="Food Pantry Kids">
+                      Food Pantry - Kids (FPK)
+                    </option>
+                    <option value="Food Pantry Housing Authority">
+                      Food Pantry - Housing Authority (FPHA)
+                    </option>
+                    <option value="Food Pantry Health">
+                      Food Pantry - Health (FPH)
+                    </option>
+                    <option value="Soup Kitchen">Soup Kitchen (SK)</option>
+                    <option value="Soup Kitchen Mobile">
+                      Soup Kitchen - Mobile (SKM)
+                    </option>
+                    <option value="Soup Kitchen Kids">
+                      Soup Kitchen - Kids (SKK)
+                    </option>
+                  </select>
+                </div>
+                <div className="grid gap-3">
                   <Label htmlFor="phoneNumber">Phone Number</Label>
                   <Input
                     id="phoneNumber"
@@ -97,8 +130,8 @@ export function FoodBankSignupForm({ className, onSubmit }) {
                   />
                 </div>
                 <div>
-                  <Button type="submit" className="w-full">
-                    Create Account
+                  <Button type="submit" className="w-full" disabled={loading}>
+                    {loading ? 'Creating...' : 'Create Account'}
                   </Button>
                 </div>
               </div>
