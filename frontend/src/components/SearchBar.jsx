@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
-import "./SearchBar.css";
+import "../styles/SearchBar.css";
 import { cfcActiveData } from "../../../API/activefoodbanks0425";
 import { useEffect } from "react";
 import { borough } from "../adapters/filter-adapter";
@@ -37,7 +37,8 @@ export const SearchBar = () => {
   const clickedFoodBank = (result) => {
     setFoodBank(result);
   };
-  let navigate = useNavigate();
+
+  //let navigate = useNavigate();
   useEffect(() => {
     if (foodbank.length !== 0) {
       // console.log("RUAH", foodbank)
