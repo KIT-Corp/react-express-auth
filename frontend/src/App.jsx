@@ -68,9 +68,10 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/sign-up" element={<SignUpPage />} />
           <Route path="/foodbanksignup" element={<FoodBankSignUp />} />
-          <Route path="/user" element={<UserPage />} />
+          {/* <Route path="/user" element={<UserPage />} /> */}
           <Route path="/foodbankuser" element={<ifFoodBank />} />
           {/* <Route path="/new" element={<newInfo />} /> */}
+          {/* need */}
           <Route path="/users/:id" element={<UserPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

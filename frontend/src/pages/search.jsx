@@ -74,39 +74,43 @@ export default function search() {
       } else {
         answer = []
       }
-
-      setFiltered(answer);
+        setFiltered(answer);
   }
 
+  return (
+    <>
+      <h1>Begin your search here: </h1>
+      <div className="full-search">
+        <SearchBar />
 
-  return <>
+        <div className="filtering">
+          <select onChange={filtering}>
+            <option defaultValue="n" selected>
+              -- Select an option --
+            </option>
+            <option value="bro">brooklyn</option>
+            <option value="bronx"> bronx</option>
+            <option value="man">manhattan</option>
+            <option value="que">queens</option>
+            <option value="staten">staten</option>
+          </select>
+        </div>
 
-    <div>
-    <h1>Search Food Banks Here: </h1>
-    <SearchBar />
-  </div>
-
-
-<div className='filtering'> 
-
-  <select onChange={filtering}>
-  <option defaultValue="n" selected>-- Select an option --</option>
-  <option value='bro'>brooklyn</option>
-  <option value='bronx'> bronx</option>
-  <option value='man'>manhattan</option>
-  <option value='que'>queens</option>
-  <option value='staten'>staten</option>
-  </select>
-
-   <div>
-        {filter.map((bank, index) => (
-          <ul className='filter-result' key={index} onClick = {() => {
-            clickedFoodBank(filter[index])
-  }}>{bank.name}</ul>
-        ))}
+        <div>
+          {filter.map((bank, index) => (
+            <ul
+              className="filter-result"
+              key={index}
+              onClick={() => {
+                clickedFoodBank(filter[index]);
+              }}
+            >
+              {bank.name}
+            </ul>
+          ))}
+        </div>
       </div>
-</div>
-    
+  
     <div>
       <MapContainer center={[40.7128, -74.0060]} zoom={13}>
         <TileLayer
@@ -121,6 +125,6 @@ export default function search() {
         ))}
       </MapContainer>
     </div>
-  
-  </>;
+  </>
+)
 };

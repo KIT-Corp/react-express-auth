@@ -25,19 +25,19 @@ export default function SiteHeadingAndNav() {
 
           {currentUser ? (
             <>
-              <li>
+              {/* <li>
                 <NavLink to="/users" end={true}>
                   Users
                 </NavLink>
-              </li>
+              </li> */}
               <li>
                 <NavLink to={`/users/${currentUser.id}`}>
                   {currentUser.username}
                 </NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink to="/User">User</NavLink>
-              </li>
+              </li> */}
             </>
           ) : (
             <>

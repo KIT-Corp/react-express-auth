@@ -3,6 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 70vh;
 }
 
 .slide {
@@ -51,8 +52,6 @@
   box-shadow: 0 0 2px #555;
   display: inline-block;
   box-sizing: border-box;
-  min-width: 0;
-  min-height: 0;
 }
 
 .slide-hidden {
@@ -64,20 +63,27 @@
 }
 
 .statement {
-  width: 40%;
+  width: 60%;
+  padding-top: 7vh;
+  padding-left: 10vh;
 }
 
 .main-selections {
+  padding-left: 10vh;
+  padding-bottom: 5vh;
   display: flex;
-  width: 1150px;
-  padding: 20px;
+  width: 150vh;
+  padding-top: 10vh;
 }
 
 .aboutus-butt {
+  width: 40vh;
+  height: 9vh;
   background-color: #ffc9b9;
   font-size: 5vh;
-  justify-self: center;
+  text-align: center;
 }
+
 .butt {
   justify-content: center;
 }
