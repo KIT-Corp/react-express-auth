@@ -1,4 +1,3 @@
-
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { Icon } from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -8,7 +7,6 @@ import { coords } from "../adapters/cords-adapter";
 import { useEffect, useState } from "react";
 import comen from "../images/comentodos.jpg";
 import { Carousel } from "../components/carousel";
-import { slides } from "../components/carouselData.json";
 
 export default function Home() {
   const [cords, setCords] = useState([]);
@@ -16,7 +14,7 @@ export default function Home() {
   useEffect(() => {
     const doFetch = async () => {
       const cord = await coords();
-      
+
       console.log("coords", cord);
 
       setCords(cord);
@@ -32,9 +30,9 @@ export default function Home() {
 
   return (
     <div>
-      {/* <img src={comen} /> */}
-
-      <Carousel data={slides} />
+      <h1 className="home">Comen Todos</h1>
+      <p className="adonde">"Where one eats, everyone eats."</p>
+      <Carousel />
 
       <MapContainer center={[40.7128, -74.006]} zoom={13}>
         <TileLayer

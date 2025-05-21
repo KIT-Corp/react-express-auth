@@ -75,6 +75,8 @@ export default function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
+
+      <footer className="footer">© 2025 KJIT Corp. All rights reserved.</footer>
     </>
   );
 }
