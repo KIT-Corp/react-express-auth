@@ -12,10 +12,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-/* sizzing of map container */
+/* sizing of map container */
 .leaflet-container {
   height: 300px;
-  width: 1150px;
   align-items: right;
 }
 
@@ -239,7 +238,7 @@ form > h2 {
 }
 
 .home {
-  font-size: 75px;
+  font-size: 20vh;
   text-align: center;
 }
 

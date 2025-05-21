@@ -3,13 +3,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 400px;
-  height: 300px;
-  padding-left: 100px;
 }
 
 .slide {
-  border-radius: 0.5rem;
+  border-radius: 0.2rem;
   box-shadow: 0px 0px 7px #666;
   width: 100%;
   height: 100%;
@@ -28,7 +25,7 @@
 }
 
 .arrow-left {
-  left: 9rem;
+  left: 1rem;
 }
 
 .arrow-right {
@@ -43,8 +40,8 @@
 
 .indicator {
   background-color: white;
-  height: 12px;
-  width: 12px;
+  height: 3vh;
+  width: 3vh;
   padding: 0;
   margin: 0 2px;
   border-radius: 50%;
@@ -67,9 +64,7 @@
 }
 
 .statement {
-  padding-top: 25px;
-  padding-left: 250px;
-  width: 650px;
+  width: 40%;
 }
 
 .main-selections {
@@ -80,7 +75,7 @@
 
 .aboutus-butt {
   background-color: #ffc9b9;
-  font-size: 15px;
+  font-size: 5vh;
   justify-self: center;
 }
 .butt {
