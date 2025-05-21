@@ -68,37 +68,58 @@ input.focus {
   background-color: #efefef;
 } */
 
-* {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+:root {
+  --color-bg: #fffdf6;
+  --color-secondary-bg: #fff7ec;
+  --color-accent: #ffc9b9;
+  --color-primary: #519e8a;
+  --color-text: #685044;
+  --color-white: #ffffff;
+  --color-hover: #ffe3da;
+
+  --font-main: "Inter", sans-serif;
+  --transition-fast: 0.25s ease;
 }
 
-/* Wrapper around the input */
+* {
+  font-family: var(--font-main);
+  box-sizing: border-box;
+}
+
+.search-bar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--color-bg);
+}
+
 .input-wrapper {
-  background-color: var(--color-white);
+  background-color: var(--color-secondary-bg);
   width: 100%;
-  max-width: 300px;
-  border-radius: 10px;
-  padding: 0 15px;
-  height: 2.5rem;
+  max-width: 360px;
+  border-radius: 12px;
+  padding: 0 1rem;
+  height: 2.75rem;
   display: flex;
   align-items: center;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
-  transition: box-shadow 0.3s ease;
-  position: relative; /* for safe stacking context */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: box-shadow var(--transition-fast);
+  position: relative;
+  animation: fadeInSlide 0.4s ease forwards;
+  border: 1.5px solid var(--color-primary);
 }
 
 .input-wrapper:focus-within {
-  box-shadow: 0 0 8px var(--color-accent);
+  box-shadow: 0 0 10px var(--color-accent);
 }
 
-/* Input styles */
 input {
-  background-color: transparent;
+  background: transparent;
   border: none;
-  height: 100%;
-  font-size: 1.1rem;
+  font-size: 1rem;
   width: 100%;
-  margin-left: 5px;
+  height: 100%;
   color: var(--color-text);
 }
 
@@ -106,101 +127,52 @@ input:focus {
   outline: none;
 }
 
-input:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-/* List of search results */
 .results-list {
+  background-color: var(--color-secondary-bg);
   width: 100%;
-  max-width: 300px;
-  background-color: var(--color-white);
-  display: flex;
-  flex-direction: column;
-  border-radius: 10px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-  max-height: 300px;
-  overflow-y: auto;
-  z-index: 10; /* lowered from 10000 */
+  max-width: 360px;
   margin-top: 0.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  max-height: 300px;
+  animation: fadeInSlide 0.3s ease-in-out;
+  z-index: 10;
   position: absolute;
+  top: 3.5rem;
+  border: 1px solid var(--color-primary);
 }
 
-/* Single search result */
 .search-result {
-  padding: 10px 20px;
+  padding: 0.75rem 1rem;
   cursor: pointer;
+  transition: background-color var(--transition-fast);
   color: var(--color-text);
-  transition: background-color 0.2s ease;
 }
 
-.search-result:hover {
-  background-color: var(--color-bg);
+.search-result:hover,
+.search-result:focus {
+  background-color: var(--color-accent);
+  color: white;
+  outline: none;
 }
 
-/* Input form styling */
-.inputForm {
-  background-color: var(--color-bg);
-  max-width: 230px;
-  padding: 0.5rem;
-  border-radius: 6px;
-  border: 1px solid var(--color-primary);
-}
-
-/* Review input box */
-.reviewInput {
-  width: 100%;
-  max-width: 500px;
-  max-height: 500px;
-  background-color: var(--color-white);
-  padding: 0.5rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-/* Comment input */
-.commentInput {
-  margin-left: 50px;
-  width: 100%;
-  max-width: 430px;
-  max-height: 250px;
-  background-color: var(--color-bg);
-  padding: 0.5rem;
-  border-radius: 6px;
-  border: 1px solid var(--color-primary);
-}
-
-/* Responsive adjustments */
-@media (max-width: 600px) {
-  .reviewInput,
-  .commentInput {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+/* Animations */
+@keyframes fadeInSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* ✅ What Changed:
-All background-color: white → var(--color-white) for consistency.
-
-Shadow colors softened with rgba(...) for a more modern look.
-
-:focus-within added to .input-wrapper to highlight on user interaction.
-
-Removed fixed margin hacks (like margin-left: -275px) and replaced with position: absolute; where appropriate—adjust as needed for layout.
-
-Aligned font and transitions with your main style. */
-
-.commentInput {
-  margin-left: 50px;
-  width: 430px;
-  max-height: 250px;
-  background-color: #efefef;
-}
-.filter-result {
-  background-color: white;
-}
-.filter-result:hover {
-  background-color: #ddd;
+/* Mobile responsive */
+@media (max-width: 600px) {
+  .input-wrapper,
+  .results-list {
+    max-width: 90%;
+  }
 }
