@@ -48,21 +48,22 @@ export const SearchBar = () => {
   }, [foodbank]);
 
   return (
-    <div className="input-wrapper">
-      <input
-        placeholder="type to search..."
-        value={input}
-        onChange={(e) => handleChange(e.target.value)}
-      />
+    <div className="search-container">
+      <div className="input-wrapper">
+        <input
+          placeholder="type to search..."
+          value={input}
+          onChange={(e) => handleChange(e.target.value)}
+        />
+      </div>
+
       <div className="results-list">
         <ul>
           {results.map((item, index) => (
             <li
               className="search-result"
               key={index}
-              onClick={() => {
-                clickedFoodBank(results[index]);
-              }}
+              onClick={() => clickedFoodBank(item)}
             >
               {item.name}
             </li>

@@ -291,18 +291,43 @@ form > h2 {
 }
 
 /* sizing of map container */
+.overlay {
+  position: absolute;
+  width: 20vw;
+  height: 200vh;
+  background-color: white;
+  border: 1px solid #ccc;
+  z-index: 1000;
+  padding: 1rem;
+}
 .leaflet-container {
-  height: 300px;
-  width: 1000px;
-  align-items: right;
+  height: 80vh;
+  width: 90vw;
+  margin: 0 auto;
 }
 
-.leaflet-map {
-  height: 100px;
-  width: 300px;
+.map-search {
+  height: 200vh;
+  width: 98vw;
+  align-items: right;
+  /* z-index: 10000; */
 }
 
 .full-search {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+}
+
+.answer {
+  flex-direction: column;
+  box-shadow: 0px 0px 8px #ddd;
+  border-radius: 10px;
+  margin-top: 9px;
+  max-height: 50vh;
+  overflow-y: scroll;
+}
+
+.heading {
+  margin-top: 20vh;
+  font-size: 5vh;
 }
