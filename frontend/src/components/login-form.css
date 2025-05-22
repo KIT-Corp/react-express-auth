@@ -1,0 +1,224 @@
+/* .login-container {
+  background-color: #fffdf6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-form {
+  background-color: #fff7ec;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(104, 80, 68, 0.1);
+  width: 100%;
+  max-width: 400px;
+  color: #685044;
+  font-family: "Inter", sans-serif;
+}
+
+.login-form h2 {
+  color: #685044;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.login-form label {
+  display: block;
+  margin: 0.75rem 0 0.25rem;
+  font-weight: 600;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #fffdf6;
+  transition: border-color 0.3s ease;
+}
+
+.login-form input:focus {
+  border-color: #519e8a;
+  outline: none;
+}
+
+.login-form button {
+  width: 100%;
+  background-color: #519e8a;
+  color: #fffdf6;
+  padding: 0.8rem;
+  margin-top: 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+  background-color: #417d6f;
+}
+
+.signup-link {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.signup-link a {
+  color: #ffc9b9;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+} */
+
+:root {
+  --color-bg: #fffdf6;
+  --color-card-bg: #fff7ec;
+  --color-primary: #519e8a;
+  --color-accent: #ffc9b9;
+  --color-text: #685044;
+  --color-hover: #ffd5c9;
+  --transition-fast: 0.25s ease;
+  --font-main: "Inter", sans-serif;
+}
+
+* {
+  font-family: var(--font-main);
+  box-sizing: border-box;
+}
+
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--color-bg);
+  padding: 2rem;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 850px;
+  background-color: var(--color-card-bg);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}
+
+.login-card-content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 0;
+}
+
+.login-form-section {
+  flex: 1;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--color-card-bg);
+}
+
+.login-heading {
+  margin-bottom: 1.5rem;
+}
+
+.login-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--color-text);
+  margin-bottom: 0.25rem;
+}
+
+.login-subtitle {
+  font-size: 1rem;
+  color: var(--color-text);
+  opacity: 0.75;
+}
+
+.login-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.login-input {
+  background-color: #fff;
+  border: 1.5px solid var(--color-primary);
+  color: var(--color-text);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  transition: border var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.login-input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(255, 201, 185, 0.4);
+}
+
+.login-button {
+  background-color: var(--color-primary);
+  color: white;
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: background-color var(--transition-fast);
+}
+
+.login-button:hover {
+  background-color: #3f7c6c;
+}
+
+.login-divider {
+  text-align: center;
+  margin: 1.5rem 0;
+  color: var(--color-text);
+  opacity: 0.6;
+}
+
+.login-footer {
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  margin-top: 0.5rem;
+}
+
+.login-link {
+  color: var(--color-accent);
+  text-decoration: underline;
+  transition: color var(--transition-fast);
+}
+
+.login-link:hover {
+  color: var(--color-hover);
+}
+
+.login-image-container {
+  flex: 1;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.login-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0 0 16px 0;
+}
