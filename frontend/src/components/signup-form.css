@@ -1,0 +1,72 @@
+/* signup-form.css */
+
+/* Fade-in animation on mount */
+:root {
+  --color-bg: #fffdf6;
+  --color-card-bg: #fff7ec;
+  --color-primary: #519e8a;
+  --color-accent: #ffc9b9;
+  --color-text: #685044;
+  --color-error: #cc2a2a;
+  --transition-fast: 0.25s ease;
+  --font-main: "Inter", sans-serif;
+}
+
+* {
+  font-family: var(--font-main);
+  box-sizing: border-box;
+}
+
+.signup-form-fade {
+  background-color: var(--color-bg);
+  animation: fadeIn 0.6s ease-in-out;
+  padding: 2rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.signup-card {
+  background-color: var(--color-card-bg);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.signup-input {
+  background-color: #fff;
+  border: 1.5px solid var(--color-primary);
+  color: var(--color-text);
+  padding: 0.65rem 0.9rem;
+  border-radius: 8px;
+  transition: border var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.signup-input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(255, 201, 185, 0.4);
+}
+
+.signup-error {
+  color: var(--color-error);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+label {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.text-muted-foreground {
+  color: var(--color-text);
+  opacity: 0.65;
+}

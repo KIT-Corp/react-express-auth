@@ -1,0 +1,67 @@
+.user-container {
+  display: flex;
+  flex-direction: column;
+  height: 81vh;
+  width: 95vw;
+}
+
+.greeting-section {
+  /* border: black solid; */
+  padding-top: 25px;
+  padding-left: 20px;
+  height: 15%;
+  width: 100%;
+  display: flex;
+  gap: 650px;
+  align-self: start;
+}
+
+.yourbank {
+  justify-items: left;
+  padding-left: 20px;
+  height: 10%;
+}
+
+.card-btnHolder {
+  display: flex;
+  /* border: yellow solid; */
+  height: 65%;
+  width: 80%;
+  align-self: center;
+}
+
+.foodbank-card {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  margin-top: 80px;
+  /* border: red solid; */
+  border-radius: 15px;
+  height: 80%;
+  width: 50%;
+}
+
+.btn-holder {
+  margin-top: 20px;
+  /* border: green solid; */
+  border-radius: 10px;
+  width: 50%;
+}
+
+.footer-btns {
+  display: flex;
+  width: 40%;
+  height: 10%;
+}
+
+.userBtn {
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.notification-icon {
+  width: 85px;
+}
+
+.user-fb-info {
+  margin-bottom: 0.75rem;
+  padding-left: 10px;
+}

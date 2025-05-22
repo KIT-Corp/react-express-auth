@@ -1,6 +1,6 @@
 // import { console } from "inspector";
 import { BrowserRouter as Router, Link } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
 import "../styles/carousel.css";
 import staten from "../images/statenisland.jpg";
@@ -9,7 +9,6 @@ import brook from "../images/brooklyn.jpg";
 import bronx from "../images/bronx.jpg";
 import queens from "../images/queens.jpg";
 
-// { data }
 export const Carousel = () => {
   const [slide, setSlide] = useState(0);
 
@@ -19,6 +18,15 @@ export const Carousel = () => {
   const prevSlide = () => {
     setSlide(slide === slides.length - 1 ? 0 : slide - 1);
   };
+
+  useEffect(() => {
+    const changeSlide = setInterval(() => {
+      setSlide((prevSlide) => (prevSlide + 1) % slides.length);
+
+    }, 3000); // Change every 3 seconds, adjust if needed
+
+    return () => clearInterval(changeSlide);
+  }, []);
 
   let slides = [
     {
@@ -92,7 +100,7 @@ export const Carousel = () => {
         </p>
         <div className="butt">
           <Link to="/AboutUs">
-            <button className="aboutus-butt">Learn more about us</button>
+            <button className="aboutus-butt">Learn more</button>
           </Link>
         </div>
       </div>

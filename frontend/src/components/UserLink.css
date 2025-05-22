@@ -1,0 +1,11 @@
+.user-link {
+  color: var(--color-primary);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease, text-decoration 0.2s ease;
+}
+
+.user-link:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}

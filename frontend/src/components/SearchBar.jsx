@@ -10,6 +10,7 @@ export const SearchBar = () => {
   const [results, setResults] = useState([]);
   const [foodbank, setFoodBank] = useState([]);
   const [boro, setBro] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const doFetch = async () => {
@@ -37,9 +38,7 @@ export const SearchBar = () => {
     setFoodBank(result);
   };
 
-  //when we click on a foodbank, useEffect automatically loads /foodBankInfoPage because
-  //useEffect has the state 'foodBank' in as it's dependency
-  let navigate = useNavigate();
+  //let navigate = useNavigate();
   useEffect(() => {
     if (foodbank.length !== 0) {
       // console.log("RUAH", foodbank)
@@ -49,21 +48,22 @@ export const SearchBar = () => {
   }, [foodbank]);
 
   return (
-    <div className="input-wrapper">
-      <input
-        placeholder="type to search..."
-        value={input}
-        onChange={(e) => handleChange(e.target.value)}
-      />
+    <div className="search-container">
+      <div className="input-wrapper">
+        <input
+          placeholder="type to search..."
+          value={input}
+          onChange={(e) => handleChange(e.target.value)}
+        />
+      </div>
+
       <div className="results-list">
         <ul>
           {results.map((item, index) => (
             <li
               className="search-result"
               key={index}
-              onClick={() => {
-                clickedFoodBank(results[index]);
-              }}
+              onClick={() => clickedFoodBank(item)}
             >
               {item.name}
             </li>

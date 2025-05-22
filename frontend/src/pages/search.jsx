@@ -87,40 +87,46 @@ export default function search() {
 
   return (
     <>
-      <div className="full-search">
-        <h1>Begin your search here: </h1>
-        <SearchBar />
-      </div>
+      <div className="overlay">
+        <h1 className="heading">Begin your search here: </h1>
+        <div className="full-search">
+          <SearchBar />
 
-      <div className="filtering">
-        <select onChange={filtering}>
-          <option defaultValue="n" selected>
-            -- Select an option --
-          </option>
-          <option value="bro">brooklyn</option>
-          <option value="bronx"> bronx</option>
-          <option value="man">manhattan</option>
-          <option value="que">queens</option>
-          <option value="staten">staten</option>
-        </select>
+          <div className="filtering">
+            <select onChange={filtering}>
+              <option defaultValue="n" selected>
+                -- Select an option --
+              </option>
+              <option value="bro">brooklyn</option>
+              <option value="bronx"> bronx</option>
+              <option value="man">manhattan</option>
+              <option value="que">queens</option>
+              <option value="staten">staten</option>
+            </select>
+          </div>
 
-        <div>
-          {filter.map((bank, index) => (
-            <ul
-              className="filter-result"
-              key={index}
-              onClick={() => {
-                clickedFoodBank(filter[index]);
-              }}
-            >
-              {bank.name}
-            </ul>
-          ))}
+          <div className="answer">
+            {filter.map((bank, index) => (
+              <ul
+                className="filter-result"
+                key={index}
+                onClick={() => {
+                  clickedFoodBank(filter[index]);
+                }}
+              >
+                {bank.name}
+              </ul>
+            ))}
+          </div>
         </div>
       </div>
 
       <div>
-        <MapContainer center={[40.7128, -74.006]} zoom={13}>
+        <MapContainer
+          center={[40.6782, -73.9442]}
+          zoom={12}
+          className="map-search"
+        >
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
