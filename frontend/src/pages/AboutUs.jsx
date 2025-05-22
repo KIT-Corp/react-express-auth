@@ -62,17 +62,26 @@ export default function AboutUs() {
           "Comen Todos, inspired by the Spanish phrase “A donde come uno, comen
           dos y a donde comen dos comen todos” (“Where one eats, two eat, and
           where two eat, everyone eats”), embodies the belief that everyone
-          deserves a seat at the table. Our mission is to combat food insecurity
-          by providing a centralized platform that connects individuals with
-          local food resources, reduces the stigma associated with seeking help,
-          and empowers communities to support one another.
-          <br />
-          <br />
-          By aggregating information on food banks, soup kitchens, and community
-          programs, Comen Todos aims to streamline access to food assistance,
-          saving users time and effort. In doing so, we strive to foster a sense
-          of solidarity and collective action, ensuring that no New Yorker has
-          to face hunger alone."
+          deserves a seat at the table. <br /> <br />
+          Our mission is to combat food insecurity by offering a centralized,
+          user-friendly web platform that connects individuals and families with
+          nearby food resources. We aim to reduce the stigma around asking for
+          help by building a digital space that’s warm, inclusive, and rooted in
+          community care. <br /> <br />
+          By aggregating and organizing data on food banks, soup kitchens, and
+          mutual aid programs across NYC, Comen Todos helps users find the
+          support they need quickly and confidently. Our interactive features —
+          like real-time location mapping, user reviews, and social sharing —
+          make it easier to navigate food assistance without frustration or
+          confusion. <br /> <br />
+          Additionally, we empower food banks to create their own presence on
+          the platform, share updates, and connect with those they serve
+          directly. This two-way interaction not only fosters transparency, but
+          also strengthens local networks of care. <br /> <br />
+          At its core, Comen Todos is more than just a resource hub — it’s a
+          digital extension of community solidarity. We believe that in standing
+          together and sharing what we have, we can ensure no New Yorker has to
+          face hunger alone."
         </p>
       </section>
 
