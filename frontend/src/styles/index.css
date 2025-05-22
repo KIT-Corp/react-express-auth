@@ -331,3 +331,13 @@ form > h2 {
   margin-top: 20vh;
   font-size: 5vh;
 }
+
+.fb-infoContainer {
+  display: flex;
+  flex-direction: column;
+  height: 81vh;
+}
+
+.info-btns-btm {
+  width: 30vw;
+}
