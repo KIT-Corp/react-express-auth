@@ -5,7 +5,6 @@ import {
   Routes,
   useLocation,
   data,
-
 } from "react-router-dom";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { Icon } from "leaflet";
@@ -50,27 +49,36 @@ export default function Page(props) {
         ))}
       </MapContainer>
     </div> */}
+      <div className="fb-infoContainer">
+        {/* <button>Press here to favorite!</button> */}
 
-      <button>Press here to favorite!</button>
+        <h1>{foodbank.name}</h1>
+        <br></br>
+        <p>
+          Located at: {foodbank.food_bank_street}, {foodbank.food_bank_borough},{" "}
+          {foodbank.food_bank_zip}
+        </p>
+        <br></br>
+        <p>Days Opened: {foodbank.days_open}</p>
+        <br></br>
+        <p>
+          Hours: {foodbank.opening_hour} - {foodbank.closing_hour}{" "}
+        </p>
+        <br></br>
+        <p>Phone Number: {foodbank.phone_number}</p>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <Link to="/Review" state={foodbank} className="info-btns-btm">
+          <button>Read other reviews!</button>
+        </Link>
+        <br></br>
 
-      <h1>Food bank name: {foodbank.name}</h1>
-      <p>
-        Located at: {foodbank.food_bank_street}, {foodbank.food_bank_borough},{" "}
-        {foodbank.food_bank_zip}
-      </p>
-      <p>Days Opened: {foodbank.days_open}</p>
-      <p>
-        Hours: {foodbank.opening_hour} - {foodbank.closing_hour}{" "}
-      </p>
-      <p>Phone Number: {foodbank.phone_number}</p>
-
-      <Link to="/Review" state={foodbank}>
-        <button>Read other reviews!</button>
-      </Link>
-
-      <Link to="/Form" state={foodbank}>
-        <button>Leave a review!</button>
-      </Link>
+        <Link to="/Form" state={foodbank} className="info-btns-btm">
+          <button>Leave a review!</button>
+        </Link>
+      </div>
     </>
   );
 }
