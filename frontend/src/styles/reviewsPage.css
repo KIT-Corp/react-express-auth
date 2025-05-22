@@ -4,7 +4,7 @@ h1 {
 }
 
 button {
-  background-color: #079dd9; /* Green */
+  /* background-color: #079dd9;  */
   border: none;
   color: white;
   padding: 15px 32px;
@@ -24,9 +24,10 @@ button :hover {
   justify-content: space-between;
 }
 
-img {
+.ct-navbar-logo {
   width: 25px;
 }
+
 
 .top-half {
   display: flex;
