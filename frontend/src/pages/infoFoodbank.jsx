@@ -63,11 +63,11 @@ export default function Page(props) {
       </p>
       <p>Phone Number: {foodbank.phone_number}</p>
 
-      <Link to="/Review">
+      <Link to="/Review" state={foodbank}>
         <button>Read other reviews!</button>
       </Link>
 
-      <Link to="/Form">
+      <Link to="/Form" state={foodbank}>
         <button>Leave a review!</button>
       </Link>
     </>
