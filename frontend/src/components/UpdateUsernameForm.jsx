@@ -94,14 +94,21 @@ export default function UpdateUsernameForm({ currentUser, setCurrentUser }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
-    console.log(Object.fromEntries(formData));
-    const [user, error] = await updateUsername(Object.fromEntries(formData));
+    let data = Object.fromEntries(formData);
+    const obj = {
+      id: currentUser.id,
+      username: data.username,
+      email: currentUser.email,
+      age: currentUser.age,
+      zipcode: currentUser.zipcode,
+    };
+    const [user, error] = await updateUsername(obj);
 
     if (error?.cause > 400 && error?.cause < 500) {
-      setCurrentUser(null);
-      return navigate("/");
+      //setCurrentUser(null);
+      // return navigate("/");
+      console.log("Error condition ran");
     }
-
     setCurrentUser(user);
     event.target.reset();
   };
