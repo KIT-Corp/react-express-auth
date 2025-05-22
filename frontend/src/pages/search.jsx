@@ -89,9 +89,10 @@ export default function search() {
     <>
       <div className="overlay">
         <h1 className="heading">Begin your search here: </h1>
+        <br></br>
         <div className="full-search">
           <SearchBar />
-
+          <br></br>
           <div className="filtering">
             <select onChange={filtering}>
               <option defaultValue="n" selected>

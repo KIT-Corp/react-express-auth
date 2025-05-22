@@ -276,6 +276,9 @@ form > h2 {
   color: #eee;
   font-size: 0.9rem;
   margin-top: 2rem;
+  bottom: 0;
+  position: static;
+  width: 100%;
 }
 
 /* Home Page */
@@ -294,7 +297,7 @@ form > h2 {
 .overlay {
   position: absolute;
   width: 20vw;
-  height: 200vh;
+  height: 85vh;
   background-color: white;
   border: 1px solid #ccc;
   z-index: 1000;
@@ -307,7 +310,7 @@ form > h2 {
 }
 
 .map-search {
-  height: 200vh;
+  height: 85vh;
   width: 98vw;
   align-items: right;
   /* z-index: 10000; */
@@ -328,8 +331,8 @@ form > h2 {
 }
 
 .heading {
-  margin-top: 20vh;
-  font-size: 5vh;
+  margin-top: 4vh;
+  font-size: 4.5vh;
 }
 
 .fb-infoContainer {
