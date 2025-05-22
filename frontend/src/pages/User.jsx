@@ -59,17 +59,18 @@ export default function UserPage() {
 
       <div className="card-btnHolder">
         <div className="foodbank-card">
-          <h2>Food Bank #2</h2>
+          <h2>Bible church of christ</h2>
           <br></br>
           <div className="user-fb-info">
-            <p>Open: 6 AM - 6PM</p>
+            <p>Rating: ⭐⭐⭐⭐</p>
+            <p>Open: 1PM - 4PM</p>
             <p>
-              Address: 123 Sesame St,
+              Address: 1358 MORRIS AVENUE,
               <br />
-              Brooklyn, NY
+              Bronx, NY
             </p>
-            <p>Rating: ⭐⭐</p>
-            <br></br>
+            <p>Phone: 718-293-1928</p>
+            <p>Days Open: WED/SUN </p>
             <br></br>
             <br></br>
             <button className="userBtn">Change Bank?</button>
