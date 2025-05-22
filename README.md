@@ -1,14 +1,25 @@
-# Project Name
+# Comen Todos
 
-> Project Mission Statement
+Comen Todos comes from a Spanish phrase that goes, "A donde come uno, comen dos y a donde comen dos comen todos" which translates to "Where one eats, two eat and where two eat, everyone eats". This just highlights our core belief:
+
+Everyone deserves a seat at the table.
+
+During these tough economic times we know that about 50% of NYC households are struggling to make ends meet and this is affecting everyone from our elders to our youngest humans, 1 in every 4 children don't know where their next meal is coming from. Letting these insecurities grow harm all of us at the end of the day.
+
+We created Comen Todos to help fight against the stigma of asking for help and to give the community a bit of power when it comes to fighting food insecurity. In these times where time is money, we hope to save folks some time and give them as much information we can all in one space. Our mission is simple:
+
+We stand together, we help one another.
+We eat together.
 
 ## Team
 
-  - teamMember: **Scrum Master, Developer**
-  - teamMember: **Developer**
-  - teamMember: **Developer**
+- Irma Barrios: **Scrum Master, Frontend Developer**
+- King McLeod: **Full Stack Developer**
+- Tyreese Wray: **Full Stack Developer**
+- Joshua Young: **CSS Developer**
 
 ## Table of Contents
+
 - [Getting Started](#getting-started)
   - [Build and Start Commands](#build-and-start-commands)
   - [Technologies Used](#technologies-used)
@@ -38,7 +49,7 @@ PG_PASS='12345'
 PG_DB='my_react_express_auth_database'
 
 # Replace session secret with your own random string!
-# This is used by handleCookieSessions to hash your cookie data 
+# This is used by handleCookieSessions to hash your cookie data
 SESSION_SECRET='db8c3cffebb2159b46ee38ded600f437ee080f8605510ee360758f6976866e00d603d9b3399341b0cd37dfb8e599fff3'
 
 # When you deploy your database on render, this string can be used to test SQL queries to the deployed database.
@@ -65,6 +76,8 @@ cd server && npm start
 - Postgresql
 - React
 - Knex
+- Tailwind
+- Leaflet
 - etc...
 
 ## Project Proposal
@@ -73,7 +86,7 @@ See [PROPOSAL.md](PROPOSAL.md) for more details on the project proposal.
 
 ## Roadmap
 
-View the project roadmap [here](LINK_TO_PROJECTS_TAB).
+View the project roadmap [here](https://github.com/orgs/KJIT-Corp/projects/1).
 
 ## Contributing
 

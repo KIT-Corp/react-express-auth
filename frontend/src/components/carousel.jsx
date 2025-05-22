@@ -22,7 +22,9 @@ export const Carousel = () => {
   useEffect(() => {
     const changeSlide = setInterval(() => {
       setSlide((prevSlide) => (prevSlide + 1) % slides.length);
+
     }, 3000); // Change every 3 seconds, adjust if needed
+
     return () => clearInterval(changeSlide);
   }, []);
 
