@@ -20,7 +20,7 @@ export const Carousel = () => {
   };
 
   useEffect(() => {
-    const changeSlide = setInterval(() => setSlide((slide) => 1 - slide), 1000);
+    const changeSlide = setInterval(() => setSlide((slide) => 2 - slide), 1000);
     return () => clearInterval(changeSlide);
   }, []);
 
@@ -96,7 +96,7 @@ export const Carousel = () => {
         </p>
         <div className="butt">
           <Link to="/AboutUs">
-            <button className="aboutus-butt">Learn more about us</button>
+            <button className="aboutus-butt">Learn more</button>
           </Link>
         </div>
       </div>
