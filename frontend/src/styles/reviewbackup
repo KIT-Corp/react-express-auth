@@ -24,7 +24,7 @@ button :hover {
   justify-content: space-between;
 }
 
-img {
+.ct-navbar-logo {
   width: 25px;
 }
 

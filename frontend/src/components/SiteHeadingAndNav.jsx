@@ -8,7 +8,7 @@ export default function SiteHeadingAndNav() {
 
   return (
     <header>
-      <Link to="/" id="logo">
+      <Link to="/" id="logo" className="ct-navbar-logo">
         <img src={comen} />
       </Link>
       <nav>
