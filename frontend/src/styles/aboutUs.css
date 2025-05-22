@@ -1,3 +1,5 @@
+/** @format */
+
 .about-page {
   font-family: Arial, sans-serif;
   padding: 1rem;
@@ -59,8 +61,8 @@ h2 {
 
 .team-members {
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  justify-content: space-evenly;
+  /* flex-wrap: wrap; */
   margin-top: 1rem;
 }
 
@@ -71,8 +73,8 @@ h2 {
 }
 
 .profile-pic {
-  width: 80px;
-  height: 80px;
+  width: 128px;
+  height: 128px;
   border: 2px solid black;
   border-radius: 50%;
   margin: auto;
