@@ -51,7 +51,7 @@ export default function ReviewsPage() {
               <i className="pencil-Icon">
                 <img src="https://static-00.iconduck.com/assets.00/edit-icon-1022x1024-kes437mc.png"></img>
               </i>
-              <p>Write a review!</p>
+              <p> Write a review!</p>
             </div>
           </button>
         </div>

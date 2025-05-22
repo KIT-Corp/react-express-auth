@@ -29,7 +29,6 @@ button:hover {
   width: 25px;
 }
 
-
 .top-half {
   display: flex;
   justify-content: space-between;
@@ -86,4 +85,8 @@ button:hover {
   font-size: 0.95rem;
   color: #333;
   line-height: 1.4;
+}
+
+.pencil-Icon {
+  width: 1.5vw;
 }
