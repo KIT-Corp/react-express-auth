@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { getUser } from "../adapters/user-adapter";
 import { getFoodBankReviews } from "../adapters/review-adapters";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "../styles/reviewsPage.css";
 
 export default function ReviewsPage() {
   const location = useLocation();
   const [otherReviews, setOtherReviews] = useState([]);
-
+  const navigate = useNavigate();
   const foodbank = location.state;
 
   useEffect(() => {
@@ -46,7 +46,7 @@ export default function ReviewsPage() {
           <p>Over {otherReviews.length} reviews!</p>
         </div>
         <div>
-          <button>
+          <button onClick={() => navigate("/Form", { state: foodbank })}>
             <div className="writeReview">
               <i className="pencil-Icon">
                 <img src="https://static-00.iconduck.com/assets.00/edit-icon-1022x1024-kes437mc.png"></img>
