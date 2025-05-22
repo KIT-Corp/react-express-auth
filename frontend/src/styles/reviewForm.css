@@ -1,0 +1,43 @@
+.form-container {
+  height: 81vh;
+  width: 95vw;
+  margin: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.form-heading {
+  width: 100%;
+  align-content: center;
+}
+
+.review-form {
+  height: 100%;
+  width: 60%;
+}
+
+.entry-details {
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.cancel-btn {
+  margin-left: 15px;
+}
+
+.review-Comments {
+  height: 100%;
+  margin-bottom: 15px;
+  margin-top: 0px;
+}
+.review-text {
+  width: 50%;
+  height: 80%;
+}
+
+.visit-div {
+  width: 40%;
+}
