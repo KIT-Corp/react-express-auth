@@ -1,10 +1,11 @@
 /** @format */
 
 import { useState } from 'react';
-import Josh from '../images/Marcy-99B.jpg';
-import Irma from '../images/Marcy-78.jpg';
-import King from '../images/Marcy-06.jpg';
-import Ty from '../images/Marcy-17.jpg';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import Josh from '../images/joshua-aboutus.png';
+import Irma from '../images/irma-aboutus.jpg';
+import King from '../images/king-aboutus.jpg';
+import Ty from '../images/ty-aboutus.jpg';
 import '../styles/aboutUs.css';
 import FoodInsecurityBarChart from '../components/FoodInsecurityBarChart';
 
@@ -64,29 +65,139 @@ export default function AboutUs() {
           deserves a seat at the table. Our mission is to combat food insecurity
           by providing a centralized platform that connects individuals with
           local food resources, reduces the stigma associated with seeking help,
-          and empowers communities to support one another." <br />
+          and empowers communities to support one another.
+          <br />
           <br />
           By aggregating information on food banks, soup kitchens, and community
           programs, Comen Todos aims to streamline access to food assistance,
           saving users time and effort. In doing so, we strive to foster a sense
           of solidarity and collective action, ensuring that no New Yorker has
-          to face hunger alone.
+          to face hunger alone."
         </p>
       </section>
 
       <section className="team-section">
         <h2>Meet The Team:</h2>
-        <div className="team-members">
-          {[1, 2, 3].map((_, i) => (
-            <div className="member" key={i}>
-              <div className="profile-pic"></div>
-              <p>Socials:</p>
-              <div className="social-icons">LI EMAIL</div>
-              <p className="bio">
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit..."
-              </p>
+        <div className="team-members flex-nowrap gap-2 mt-8 overflow-x-auto px-4">
+          <div className="member bg-white shadow-md rounded-lg p-4 w-60 flex-shrink-0 text-center">
+            <img
+              className="profile-pic w-32 h-32 object-cover rounded-full mx-auto"
+              src={King}
+              alt="King McLeod"
+            />
+            <h3>King McLeod</h3>
+            <p>Backend Developer</p>
+            <div className="social-icons flex justify-center gap-4 my-2">
+              <a
+                href="https://github.com/kurasmagnolia"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaGithub className="text-2xl" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/kingmmcleod/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedin className="text-2xl" />
+              </a>
             </div>
-          ))}
+            <p className="bio">
+              King focused on building out the structure of the database and
+              server-side logic with clean and secure endpoints.
+            </p>
+          </div>
+
+          <div className="member bg-white shadow-md rounded-lg p-4 w-60 flex-shrink-0 text-center">
+            <img
+              className="profile-pic w-32 h-32 object-cover rounded-full mx-auto"
+              src={Josh}
+              alt="Joshua Young"
+            />
+            <h3>Joshua Young</h3>
+            <p>CSS Developer</p>
+            <div className="social-icons flex justify-center gap-4 my-2">
+              <a
+                href="https://github.com/Youngjoshua248"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaGithub className="text-2xl" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/joshua-young-b697812b1/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedin className="text-2xl" />
+              </a>
+            </div>
+            <p className="bio">
+              Josh is passionate about UI/UX and brought our frontend to life
+              with beautiful styles.
+            </p>
+          </div>
+
+          <div className="member bg-white shadow-md rounded-lg p-4 w-60 flex-shrink-0 text-center">
+            <img
+              className="profile-pic w-32 h-32 object-cover rounded-full mx-auto"
+              src={Irma}
+              alt="Irma Barrios"
+            />
+            <h3>Irma Barrios</h3>
+            <p>Project Manager & Frontend Developer</p>
+            <div className="social-icons flex justify-center gap-4 my-2">
+              <a
+                href="https://github.com/irmabrr"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaGithub className="text-2xl" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/irmabarrios1/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedin className="text-2xl" />
+              </a>
+            </div>
+            <p className="bio">
+              Irma led project planning and built key frontend components to
+              ensure consistency and clarity.
+            </p>
+          </div>
+
+          <div className="member bg-white shadow-md rounded-lg p-4 w-60 flex-shrink-0 text-center">
+            <img
+              className="profile-pic w-32 h-32 object-cover rounded-full mx-auto"
+              src={Ty}
+              alt="Tyreese Wray"
+            />
+            <h3>Tyreese Wray</h3>
+            <p>Backend Developer</p>
+            <div className="social-icons flex justify-center gap-4 my-2">
+              <a
+                href="https://github.com/Wraymar"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaGithub className="text-2xl" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/tyreesewray/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedin className="text-2xl" />
+              </a>
+            </div>
+            <p className="bio">
+              Tyreese helped develop API routes and connect the frontend with
+              our database models.
+            </p>
+          </div>
         </div>
       </section>
     </>
